@@ -7,7 +7,10 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    //"baseUrl": ".", // для абсолютного імпорту
+    "baseUrl": ".", // для абсолютного імпорту
+    "paths": {
+      "*": ["./src/*"]
+    },
     "allowSyntheticDefaultImports": true, // дозволяє працювати з лібами, що не працюють з default імпортами
     "esModuleInterop": true // дозволяє працювати з пакета, що використовують common.js через import
   },
