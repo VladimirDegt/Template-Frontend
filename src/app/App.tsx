@@ -10,18 +10,18 @@ export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={classNames("app", {}, [theme])}>
-      <button type="button" onClick={toggleTheme}>
-        Переключити тему
-      </button>
-      <Link to="/">Головна</Link>
-      <Link to="/about">Про сайт</Link>
-      <Suspense fallback={"Loading..."}>
-        <Routes>
-          <Route path={"/about"} element={<AboutPage />} />
-          <Route path={"/"} element={<MainPage />} />
-        </Routes>
-      </Suspense>
-    </div>
+      <div className={classNames("app", {}, [theme])}>
+          <button type="button" onClick={toggleTheme}>
+              Переключити тему
+          </button>
+          <Link to="/">Головна</Link>
+          <Link to="/about">Про сайт</Link>
+          <Suspense fallback={"Loading..."}>
+              <Routes>
+                  <Route path={"/about"} element={<AboutPage />} />
+                  <Route path={"/"} element={<MainPage />} />
+              </Routes>
+          </Suspense>
+      </div>
   );
 };

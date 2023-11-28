@@ -1,8 +1,8 @@
 const MainPage = () => {
   return (
-    <div>
-      <p>Main</p>
-    </div>
+      <div>
+          <p>Main</p>
+      </div>
   );
 };
 
