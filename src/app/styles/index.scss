@@ -1,14 +1,12 @@
 @import "reset";
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Montserrat&display=swap");
+@import 'url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Montserrat&display=swap")';
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
 
 .app {
-  font: var(--font-m);
-
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-
-  min-height: 100vh;
+    font: var(--font-m);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
 }
