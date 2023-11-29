@@ -1,0 +1,30 @@
+{
+    "user component": {
+        "prefix": "rc",
+        "body": [
+            "import { classNames } from 'shared/lib/classNames/classNames';",
+            "import cls from './$1.module.scss';",
+            "",
+            "interface $1Props {",
+            "    className?: string;",
+            "}",
+            "",
+            "export const $1 = ({ className }: $1Props) => {",
+            "    return (",
+            "        <div className={classNames(cls.$1, {}, [className])}>",
+            "",
+            "        </div>",
+            "    );",
+            "}"
+        ],
+        "description": "Creates a component"
+    },
+    "user consol.log": {
+        "prefix": "clg",
+        "body": [
+            "console.log('$1-->', $1);"
+        ],
+        "description": "Creates a console.log"
+    },
+
+}
