@@ -11,10 +11,14 @@
     width: var(--sidebar-width-collapsed);
 }
 
-.switchers {
-    // position: absolute;
-    // bottom: 20px;
-    // display: flex;
-    // justify-content: center;
-    // width: 100%;
+.btnSidebar {
+    position: absolute;
+    left: var(--sidebar-width);
+    top: 50%
+}
+
+.btnSidebarCol {
+    position: absolute;
+    left: var(--sidebar-width-collapsed);
+    top: 50%
 }
