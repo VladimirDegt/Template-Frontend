@@ -3,7 +3,6 @@
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-width);
     background-color: var(--inverted-bg-color);
-
     transition: width 0.3s;
 }
 
@@ -22,3 +21,7 @@
     left: var(--sidebar-width-collapsed);
     top: 50%
 }
+
+// .btnFill {
+//     fill: red
+// }
