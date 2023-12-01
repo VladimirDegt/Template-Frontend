@@ -12,6 +12,7 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false)
     const onToggle = () => {
+        console.log('click-->', );
         setCollapsed((prev) => !prev)
     }
     return (
