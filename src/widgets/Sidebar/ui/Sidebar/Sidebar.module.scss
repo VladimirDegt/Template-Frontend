@@ -8,20 +8,55 @@
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
-}
 
-.btnSidebar {
-    position: absolute;
-    left: var(--sidebar-width);
-    top: 50%
-}
-
-.btnSidebarCol {
+    .collapsedBtn {
     position: absolute;
     left: var(--sidebar-width-collapsed);
     top: 50%
 }
+}
 
-// .btnFill {
-//     fill: red
+.collapsedBtn {
+    position: absolute;
+    left: var(--sidebar-width);
+    top: 50%;
+    transition: left 0.3s;
+}
+
+// .collapseBtn {
+//     position: absolute;
+//     right: -32px;
+//     bottom: 32px;
 // }
+
+.items {
+    margin-top: 20px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    margin-left: 10px;
+    opacity: 1;
+}
+
+.icon {
+    fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .link {
+        opacity: 0;
+        transition: 0.2s opacity;
+        width: 0;
+    }
+}
