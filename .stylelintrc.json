@@ -3,6 +3,8 @@
   "rules": {
     "indentation": [4],
     "selector-class-pattern": null,
-    "custom-property-empty-line-before": null
+    "custom-property-empty-line-before": null,
+    "declaration-block-no-redundant-longhand-properties": null
+
   }
 }
