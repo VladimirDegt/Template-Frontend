@@ -9,8 +9,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     placeholder?: string;
 }
-export const Input = memo((props: InputProps) => {
-    console.log("props-->", props)
+export const Input = memo(function InputComponent(props: InputProps) {
     const {
         className,
         value,
@@ -30,7 +29,6 @@ export const Input = memo((props: InputProps) => {
                 type={type}
                 value={value}
                 onChange={onChangeHandler}
-                // placeholder={placeholder}
                 {...otherProps}
             />
         </div>
