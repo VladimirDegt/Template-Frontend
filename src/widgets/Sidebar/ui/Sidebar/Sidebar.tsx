@@ -46,7 +46,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 className={cls.collapsedBtn}
                 theme={ButtonTheme.BACKGROUND_INVERTED}
                 size={ButtonSize.L}
-                square
+                circular
             >
                 {collapsed ? ">" : "<"}
             </Button>

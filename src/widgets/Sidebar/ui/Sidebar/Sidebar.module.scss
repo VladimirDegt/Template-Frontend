@@ -8,7 +8,7 @@
 
 .collapsedBtn {
     position: absolute;
-    left: var(--sidebar-width);
+    left: calc(var(--sidebar-width) - var(--font-size-l));
     top: 50%;
     transition: left 0.3s;
 }
@@ -29,7 +29,7 @@
 
     .collapsedBtn {
         position: absolute;
-        left: var(--sidebar-width-collapsed);
+        left: calc(var(--sidebar-width-collapsed) - var(--font-size-l));
         top: 50%
     }
 }

@@ -4,6 +4,7 @@ import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
 import {Modal} from "shared/ui/Modal/Modal";
 import {Button, ButtonTheme} from "shared/ui/Button/Button";
 import {useCallback, useState} from "react";
+import { LoginModal } from 'features/AuthByUserEmail';
 
 interface NavbarProps {
     className?: string,
@@ -12,9 +13,13 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false)
 
-    const onToggleModal = useCallback(() => {
-        setIsAuthModal((prev)=> !prev)
-    }, [])
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    },[])
+
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
+    },[])
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
@@ -22,16 +27,14 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Button
                 theme={ButtonTheme.BACKGROUND_INVERTED}
                 className={cls.links}
-                onClick={onToggleModal}
+                onClick={onShowModal}
             >
                 Вхід
             </Button>
-            <Modal
+            <LoginModal
                 isOpen={isAuthModal}
-                onClose={onToggleModal }
-            >
-                Це базове модальне вікно для перевикористання!
-            </Modal>
+                onClose={onCloseModal}
+            />
         </div>
     );
 }

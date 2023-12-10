@@ -11,7 +11,7 @@
     "lint:ts:fix": "npx eslint . --ext .tsx --ext .ts --fix",
     "lint:scss": "npx stylelint **/*.scss",
     "lint:scss:fix": "npx stylelint **/*.scss --fix",
-    "start": "webpack serve --env port=3000",
+    "start": "webpack serve --env port=3002",
     "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "keywords": [],
