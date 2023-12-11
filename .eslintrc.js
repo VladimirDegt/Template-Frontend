@@ -41,7 +41,8 @@ module.exports = {
     "no-underscore-dangle": "off",
     "react/jsx-max-props-per-line": [2, { maximum: 2 }],
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
+    "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+    "react/display-name": "off" // при використанні memo потребує function declaration
   },
   globals: {
     __IS_DEV__: true,
