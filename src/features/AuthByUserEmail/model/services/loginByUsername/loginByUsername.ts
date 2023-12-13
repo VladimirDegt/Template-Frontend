@@ -20,8 +20,7 @@ export const loginByUsername: any = createAsyncThunk<User, LoginByUsernameProps,
 
             return response.data
         } catch (error) {
-            console.log(error);
-            return thunkAPI.rejectWithValue('error in thunk')
+            return thunkAPI.rejectWithValue('Помилка при авторизації. Перевірте пошту або пароль')
         }
     }
 )

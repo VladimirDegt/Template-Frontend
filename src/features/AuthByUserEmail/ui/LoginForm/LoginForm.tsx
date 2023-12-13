@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginActions } from "../../model/slice/loginSlice";
 import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 
 interface LoginFormProps {
     className?: string,
@@ -14,7 +15,7 @@ interface LoginFormProps {
 
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const dispatch = useDispatch();
-    const {username, email, password} = useSelector(getLoginState);
+    const {username, email, password, error, isLoading} = useSelector(getLoginState);
 
     const onChangeUserName = useCallback((val: string) => {
         dispatch(loginActions.setUserName(val))
@@ -34,6 +35,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
+            <Text title={ 'Форма авторизації' } />
+            {error && <Text text={ error } theme={TextTheme.ERROR} />}
             <Input
                 type="text"
                 value={username}
@@ -56,6 +59,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 theme={ButtonTheme.BACKGROUND_INVERTED}
                 className={cls.loginBtn}
                 onClick={onLoginClick}
+                disabled={isLoading}
             >
                 Увійти
             </Button>
