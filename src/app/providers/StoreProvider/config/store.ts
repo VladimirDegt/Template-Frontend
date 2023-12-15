@@ -1,7 +1,7 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
 import { StateSchema } from "./StateScheme";
 import { userReducer } from 'entities/User';
-import { loginReducer } from "features/AuthByUserEmail/model/slice/loginSlice";
+import { loginReducer } from "features/AuthByUserEmail";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
