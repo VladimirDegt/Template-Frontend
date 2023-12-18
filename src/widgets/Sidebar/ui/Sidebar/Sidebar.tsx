@@ -1,20 +1,19 @@
-import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from './SidebarItem/SidebarItem';
-
+import { memo, useState } from 'react';
 
 interface SidebarProps {
     className?: string;
 }
-
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false)
     const onToggle = () => {
         setCollapsed((prev) => !prev)
     }
+
     return (
         <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <div className={cls.items}>
@@ -24,8 +23,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
                         item={item}
                         collapsed={collapsed}
                     />
-                ))}
-
+                ))
+                }
             </div>
             <Button
                 type='button'
@@ -39,4 +38,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </Button>
         </div>
     );
-}
+})

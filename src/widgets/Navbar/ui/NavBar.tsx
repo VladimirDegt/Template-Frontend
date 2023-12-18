@@ -2,7 +2,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import cls from './Navbar.module.scss'
 import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
 import {Button, ButtonTheme} from "shared/ui/Button/Button";
-import {useCallback, useState} from "react";
+import { memo, useCallback, useState } from "react";
 import { LoginModal } from 'features/AuthByUserEmail';
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
@@ -11,7 +11,7 @@ interface NavbarProps {
     className?: string,
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     const onLogout = useCallback(() => {
         dispatch(userActions.logout())
     }, [dispatch])
-    
+
     if (authData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
@@ -58,5 +58,5 @@ export const Navbar = ({ className }: NavbarProps) => {
             />
         </div>
     );
-}
+})
 
