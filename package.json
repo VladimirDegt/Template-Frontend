@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.23.3",
     "@svgr/webpack": "^8.1.0",
+    "@types/history": "^2.0.51",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.38",

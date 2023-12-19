@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios';
 import { User, userActions } from "entities/User";
+import { ThunkConfig } from 'app/providers/StoreProvider';
 
 interface LoginByUsernameProps {
     username: string;
@@ -8,11 +8,13 @@ interface LoginByUsernameProps {
     password: string;
 }
 
-export const loginByUsername: any = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
+export const loginByUsername: any = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',
     async (authData, thunkAPI) => {
+        const {extra, rejectWithValue, dispatch} = thunkAPI;
+
         try {
-            const response = await axios.post<User>("http://localhost:5000/auth/registration", authData );
+            const response = await extra.api.post<User>("/auth/registration", authData );
 
             if (!response.data) {
                 throw new Error();
@@ -24,12 +26,14 @@ export const loginByUsername: any = createAsyncThunk<User, LoginByUsernameProps,
                 email: response.data.email,
                 token: response.data.token
             }
-            localStorage.setItem('token', JSON.stringify(user))
-            thunkAPI.dispatch(userActions.setAuthData(user));
+            localStorage.setItem('token', JSON.stringify(user.token))
+            dispatch(userActions.setAuthData(user));
+
+            extra.navigate('/about')
 
             return response.data
         } catch (error) {
-            return thunkAPI.rejectWithValue('Помилка при авторизації. Перевірте пошту або пароль')
+            return rejectWithValue('Помилка при авторизації. Перевірте пошту або пароль')
         }
     }
 )
