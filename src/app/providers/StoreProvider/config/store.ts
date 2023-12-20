@@ -13,7 +13,9 @@ export function createReduxStore(
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         user: userReducer,
+        //@ts-ignore
         loginForm: loginReducer,
+        //@ts-ignore
         profile: profileReducer,
     }
 

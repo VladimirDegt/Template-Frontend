@@ -1,22 +1,31 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/", // куди збираємо, нам не важливо бо збирає webpack
-    "noImplicitAny": true, // підсвітлює код де не має типу
+    "outDir": "./dist/",
+    // куди збираємо, нам не важливо бо збирає webpack
+    "noImplicitAny": true,
+    // підсвітлює код де не має типу
     "module": "ESNext",
-    "target": "es5", // в яку версію компілюємо
+    "target": "es5",
+    // в яку версію компілюємо
     "jsx": "react-jsx",
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "node",
-    "baseUrl": ".", // для абсолютного імпорту
+    "baseUrl": ".",
+    // для абсолютного імпорту
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     },
-    "allowSyntheticDefaultImports": true, // дозволяє працювати з лібами, що не працюють з default імпортами
-    "esModuleInterop": true // дозволяє працювати з пакета, що використовують common.js через import
+    "allowSyntheticDefaultImports": true,
+    // дозволяє працювати з лібами, що не працюють з default імпортами
+    "esModuleInterop": true
+    // дозволяє працювати з пакета, що використовують common.js через import
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
+  }
 }

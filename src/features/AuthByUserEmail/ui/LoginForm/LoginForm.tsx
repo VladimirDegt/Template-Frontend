@@ -17,6 +17,7 @@ interface LoginFormProps {
 
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const dispatch = useAppDispatch();
+    //@ts-ignore
     const {username, email, password, error, isLoading} = useSelector(getLoginState);
 
     const onChangeUserName = useCallback((val: string) => {
