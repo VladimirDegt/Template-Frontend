@@ -1,21 +1,21 @@
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { useSelector } from "react-redux";
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from './LoginForm.module.scss'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/ui/Input';
-import { loginActions } from "../../model/slice/loginSlice";
+import { classNames } from "shared/lib/classNames/classNames";
+import cls from './RegisterForm.module.scss';
+import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
 import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
+import { loginActions } from '../../model/slice/loginSlice';
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
-import { Text, TextTheme } from "shared/ui/Text/Text";
-import { useAppDispatch } from "shared/lib/hook/useAppDispatch/useAppDispatch";
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Input } from 'shared/ui/Input/ui/Input';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
-interface LoginFormProps {
+interface RegisterFormProps {
     className?: string;
     onSuccess: () => void;
 }
 
-const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+const RegisterForm = memo(({ className, onSuccess }: RegisterFormProps) => {
     const dispatch = useAppDispatch();
     //@ts-ignore
     const {username, email, password, error, isLoading} = useSelector(getLoginState);
@@ -32,7 +32,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         dispatch(loginActions.setUserPassword(val))
     }, [dispatch])
 
-    const onLoginClick = useCallback( async () => {
+    const onRegisterClick = useCallback( async () => {
         const result = await dispatch(loginByUsername({ username, email, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess()
@@ -40,8 +40,8 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     } ,[dispatch, username, email, password, onSuccess])
 
     return (
-        <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Text title={ 'Форма авторизації' } />
+        <div className={classNames(cls.RegisterForm, {}, [className])}>
+            <Text title={ 'Форма реєстрації' } />
             {error && <Text text={ error } theme={TextTheme.ERROR} />}
             <Input
                 type="text"
@@ -64,14 +64,13 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
             <Button
                 theme={ButtonTheme.BACKGROUND_INVERTED}
                 className={cls.loginBtn}
-                onClick={onLoginClick}
+                onClick={onRegisterClick}
                 disabled={isLoading}
             >
-                Увійти
+                Зареєструватися
             </Button>
         </div>
     );
 })
 
-export default LoginForm
-
+export default RegisterForm

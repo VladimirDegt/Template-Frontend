@@ -1,0 +1,12 @@
+.RegisterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: var(--modal-width);
+}
+
+.loginBtn {
+    margin-left: auto;
+    border-radius: 6px;
+    color: var(--secondary-color)
+}
