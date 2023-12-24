@@ -6,8 +6,15 @@ export const $api = axios.create({
 })
 
 $api.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
-    return config
+    const token = localStorage.getItem('token');
+
+    if (token !== null) {
+        config.headers.Authorization = "Bearer" + " " + JSON.parse(token);
+    } else {
+        config.headers.Authorization = "Bearer";
+    }
+
+    return config;
 })
 
 $api.interceptors.response.use(
@@ -21,7 +28,7 @@ $api.interceptors.response.use(
                 localStorage.setItem('token', JSON.stringify(response.data.token))
                 return $api.request(originalRequest)
             } catch (e) {
-                console.log('Не авторизован')
+                console.log('Срок дії рефреш токена закінчився')
             }
         }
         throw Error('Інша помилка, не 401')
