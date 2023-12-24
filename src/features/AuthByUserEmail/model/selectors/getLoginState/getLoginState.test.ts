@@ -8,7 +8,6 @@ describe('Test state LoginForm', () => {
         const expected: StateSchema = {
             user: { },
             loginForm: {
-                username: '',
                 email: '',
                 password: '',
                 isLoading: false

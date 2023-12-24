@@ -3,12 +3,12 @@ import { memo, useCallback } from 'react';
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from './RegisterForm.module.scss';
 import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
-import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
-import { loginActions } from '../../model/slice/loginSlice';
-import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/ui/Input';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { registerUser } from '../../model/services/registerUser/registerUser';
+import { registerActions } from '../../model/slice/registerSlice';
+import { getRegisterState } from 'features/AuthByUserEmail/model/selectors/getRegisterState/getRegisterState';
 
 interface RegisterFormProps {
     className?: string;
@@ -18,22 +18,21 @@ interface RegisterFormProps {
 const RegisterForm = memo(({ className, onSuccess }: RegisterFormProps) => {
     const dispatch = useAppDispatch();
     //@ts-ignore
-    const {username, email, password, error, isLoading} = useSelector(getLoginState);
-
+    const {username, email, password, error, isLoading} = useSelector(getRegisterState);
     const onChangeUserName = useCallback((val: string) => {
-        dispatch(loginActions.setUserName(val))
+        dispatch(registerActions.setUserName(val))
     }, [dispatch])
 
     const onChangeUserEmail = useCallback((val: string) => {
-        dispatch(loginActions.setUserEmail(val))
+        dispatch(registerActions.setUserEmail(val))
     }, [dispatch])
 
     const onChangeUserPassword = useCallback((val: string) => {
-        dispatch(loginActions.setUserPassword(val))
+        dispatch(registerActions.setUserPassword(val))
     }, [dispatch])
 
     const onRegisterClick = useCallback( async () => {
-        const result = await dispatch(loginByUsername({ username, email, password }));
+        const result = await dispatch(registerUser({ username, email, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess()
         }

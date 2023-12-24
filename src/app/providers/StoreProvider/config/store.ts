@@ -1,7 +1,7 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
 import { StateSchema } from "./StateScheme";
 import { userReducer } from 'entities/User';
-import { loginReducer } from "features/AuthByUserEmail";
+import { loginReducer, registerReducer } from "features/AuthByUserEmail";
 import { profileReducer } from 'entities/Profile';
 import { $api } from 'shared/api/api';
 import type { To } from '@remix-run/router';
@@ -13,6 +13,8 @@ export function createReduxStore(
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         user: userReducer,
+        //@ts-ignore
+        registerForm: registerReducer,
         //@ts-ignore
         loginForm: loginReducer,
         //@ts-ignore

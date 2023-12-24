@@ -1,22 +1,22 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { User, userActions } from "entities/User";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { User, userActions } from 'entities/User';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 
-interface LoginByUsernameProps {
+interface RegisterUserProps {
     username: string;
     email: string;
     password: string;
 }
 
-const LOCAL_TOKEN_NAME = 'token'
+const LOCAL_TOKEN_NAME = 'token';
 
-export const loginByUsername: any = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
-    'login/loginByUsername',
+export const registerUser: any = createAsyncThunk<User, RegisterUserProps, ThunkConfig<string>>(
+    'register/registerUser',
     async (authData, thunkAPI) => {
         const {extra, rejectWithValue, dispatch} = thunkAPI;
 
         try {
-            const response = await extra.api.post<User>("/auth/login", authData );
+            const response = await extra.api.post<User>("/auth/registration", authData );
 
             if (!response.data) {
                 throw new Error();

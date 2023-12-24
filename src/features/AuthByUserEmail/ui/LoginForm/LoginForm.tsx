@@ -18,11 +18,8 @@ interface LoginFormProps {
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const dispatch = useAppDispatch();
     //@ts-ignore
-    const {username, email, password, error, isLoading} = useSelector(getLoginState);
+    const {email, password, error, isLoading} = useSelector(getLoginState);
 
-    const onChangeUserName = useCallback((val: string) => {
-        dispatch(loginActions.setUserName(val))
-    }, [dispatch])
 
     const onChangeUserEmail = useCallback((val: string) => {
         dispatch(loginActions.setUserEmail(val))
@@ -33,22 +30,16 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }, [dispatch])
 
     const onLoginClick = useCallback( async () => {
-        const result = await dispatch(loginByUsername({ username, email, password }));
+        const result = await dispatch(loginByUsername({ email, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess()
         }
-    } ,[dispatch, username, email, password, onSuccess])
+    } ,[dispatch, email, password, onSuccess])
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Text title={ 'Форма авторизації' } />
+            <Text title={ 'Авторизація' } />
             {error && <Text text={ error } theme={TextTheme.ERROR} />}
-            <Input
-                type="text"
-                value={username}
-                onChange={onChangeUserName}
-                placeholder="Введіть ім'я"
-            />
             <Input
                 type="email"
                 value={email}
