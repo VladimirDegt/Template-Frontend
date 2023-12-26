@@ -39,3 +39,21 @@
 .fileInput {
     display: none;
 }
+
+.containerBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btnSend {
+    min-width: 200px;
+    border-radius: 10px;
+    border-color: var(--inverted-primary-color);
+    transition: var(--transition);
+}
+
+.btnSend:hover {
+    background-color: var(--inverted-primary-color);
+}
