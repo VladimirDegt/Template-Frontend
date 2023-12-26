@@ -1,8 +1,10 @@
+import {DragAndDrop} from "features/DragAndDrop";
+
 const AboutPage = () => {
 
   return (
       <div>
-          <p>About</p>
+          <DragAndDrop/>
       </div>
   )
 };

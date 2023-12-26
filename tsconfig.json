@@ -18,10 +18,12 @@
         "./src/*"
       ]
     },
-    "allowSyntheticDefaultImports": true,
     // дозволяє працювати з лібами, що не працюють з default імпортами
-    "esModuleInterop": true
+    "allowSyntheticDefaultImports": true,
     // дозволяє працювати з пакета, що використовують common.js через import
+    "esModuleInterop": true,
+    // дозволяє ітерацію об'єктів типу FileList
+    "downlevelIteration": true
   },
   "ts-node": {
     "compilerOptions": {
