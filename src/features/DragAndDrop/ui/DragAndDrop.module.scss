@@ -52,8 +52,17 @@
     border-radius: 10px;
     border-color: var(--inverted-primary-color);
     transition: var(--transition);
+    box-shadow: 2px 2px 5px #18181869;
 }
 
 .btnSend:hover {
     background-color: var(--inverted-primary-color);
+}
+
+.containerLoader {
+    width: 100%;
+    height: var(--drag-and-drop-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

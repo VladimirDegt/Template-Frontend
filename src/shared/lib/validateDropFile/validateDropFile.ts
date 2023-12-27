@@ -1,6 +1,6 @@
 const extensions = ['xls', 'xlsx', 'xlsm', 'xlsb', 'csv'];
 
-export function validateDropFile(files: File[]): boolean {
+export function validateDropFile(files: File[] | FileList): boolean {
     if(files.length > 1) {
         return false
     }
