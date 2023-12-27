@@ -79,7 +79,7 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
 
             try {
                 setIsLoading(true)
-                const response = await $api.post('/drag/sendFile', formData)
+                const response = await $api.post('customers/sendFile', formData)
                 if (!response.data) {
                     toast.error('Помилка відправки файла', {toastId})
                 }
@@ -127,7 +127,7 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
                                 >
                                     <UploadFileIcon/>
                                     <Text title='Натисніть або перетягніть файл для завантаження'/>
-                                    <Text title='(.xls, .xlsx, .xlsm, .xlsb, .csv)'/>
+                                    <Text title='(.csv)'/>
                                 </div>
                         }
 
