@@ -13,7 +13,7 @@ import {Loader} from "shared/ui/Loader/ui/Loader";
 interface DragAndDropProps {
     className?: string;
 }
-
+const LOCAL_TEXT_EDITOR = 'editor'
 const toastId = "custom-id-yes";
 export const DragAndDrop = memo(({className}: DragAndDropProps) => {
     const [drag, setDrag] = useState(false);
@@ -37,11 +37,10 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
         setDrag(false);
 
         if (!validateDropFile(files)) {
-            toast.error('Не вірний формат файлу оба більше одного', {autoClose: 2000, toastId})
+            toast.error('Не вірний формат файлу обо більше одного', {autoClose: 2000, toastId})
             setNameFile('Файл не обрано')
             return
         }
-        toast.success('Готов до відправки', {toastId})
         setNameFile(`${files[0].name}`)
         setFile(files[0])
     }
@@ -52,7 +51,7 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
         toast.info("Очищено", {toastId})
     }
 
-    function onChangeFile(e: React.ChangeEvent<HTMLInputElement>) {
+    function onUploadFile(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault()
         if(!e.target.files) {
             return;
@@ -73,9 +72,14 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
     async function onClickBtnSend(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
 
+        if(!localStorage.getItem(LOCAL_TEXT_EDITOR)) {
+            toast.error('Потрібно сберегти повідомлення для пошти', {toastId})
+        }
+
         if (file !== null) {
             const formData: FormData = new FormData();
             formData.append('emailTable', file);
+            formData.append('content', JSON.stringify(localStorage.getItem(LOCAL_TEXT_EDITOR)))
 
             try {
                 setIsLoading(true)
@@ -162,7 +166,7 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
                 multiple
                 id="file"
                 className={cls.fileInput}
-                onChange={onChangeFile}
+                onChange={onUploadFile}
             />
         </div>
     );

@@ -1,0 +1,19 @@
+.containerBtn {
+    width: 100%;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSend {
+    min-width: 200px;
+    border-radius: 10px;
+    border-color: var(--inverted-primary-color);
+    transition: var(--transition);
+    box-shadow: 2px 2px 5px #18181869;
+}
+
+.btnSend:hover {
+    background-color: var(--inverted-primary-color);
+}
