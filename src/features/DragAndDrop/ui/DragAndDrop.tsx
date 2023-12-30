@@ -1,19 +1,19 @@
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import React, {memo, useState} from 'react';
 import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './DragAndDrop.module.scss';
-import React, {memo, useState} from 'react';
 import {validateDropFile} from "shared/lib/validateDropFile/validateDropFile";
 import UploadFileIcon from 'shared/assets/icons/uploadFile.svg'
 import {Text, TextTheme} from "shared/ui/Text/Text";
 import {Button, ButtonSize, ButtonTheme} from "shared/ui/Button/Button";
 import {$api} from "shared/api/api";
-import 'react-toastify/dist/ReactToastify.css';
-import {toast, ToastContainer} from "react-toastify";
 import {Loader} from "shared/ui/Loader/ui/Loader";
 
 interface DragAndDropProps {
     className?: string;
 }
-const LOCAL_TEXT_EDITOR = 'editor'
+const LOCAL_TEXT_EDITOR = 'editor';
 const toastId = "custom-id-yes";
 export const DragAndDrop = memo(({className}: DragAndDropProps) => {
     const [drag, setDrag] = useState(false);

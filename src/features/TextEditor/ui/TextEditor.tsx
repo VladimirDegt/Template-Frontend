@@ -1,14 +1,19 @@
+import { ToastContainer, toast } from 'react-toastify';
+import { Editor } from '@tinymce/tinymce-react';
+import 'react-toastify/dist/ReactToastify.css';
 import React, {useRef} from 'react';
-import {Editor} from '@tinymce/tinymce-react';
 import {Button, ButtonSize, ButtonTheme} from "shared/ui/Button/Button";
 import {Text} from "shared/ui/Text/Text";
 import cls from './TextEditor.module.scss';
 
-const LOCAL_TEXT_EDITOR = 'editor'
+const LOCAL_TEXT_EDITOR = 'editor';
+const toastId = "custom-id-yes";
+
 export function TextEditor() {
     const editorRef:React.MutableRefObject<any> = useRef(null);
     const onClickBtnSend = () => {
         localStorage.setItem(LOCAL_TEXT_EDITOR, editorRef.current.getContent())
+        toast.success("Повідомлення збережено", {toastId})
     };
 
     const handleSave = () => {
@@ -20,6 +25,7 @@ export function TextEditor() {
 
     return (
         <>
+            <ToastContainer autoClose={1500}/>
             <Editor
                 apiKey='22agoptz46ai8ajjlj36w47rvknf686ckk4c6towy52zls5e'
                 onInit={(evt, editor) => editorRef.current = editor}
