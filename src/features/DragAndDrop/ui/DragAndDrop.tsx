@@ -10,6 +10,7 @@ import {Button, ButtonSize, ButtonTheme} from "shared/ui/Button/Button";
 import {$api} from "shared/api/api";
 import {Loader} from "shared/ui/Loader/ui/Loader";
 import { Axios } from 'axios';
+import { Icon } from 'shared/ui/Icon/Icon';
 
 interface DragAndDropProps {
     className?: string;
@@ -122,7 +123,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
                                     onDragOver={e => dragStartHandler(e)}
                                     onDrop={e => onDropHandler(e)}
                                 >
-                                    <UploadFileIcon/>
+                                    <Icon Svg={UploadFileIcon}/>
                                     <Text title='Відпустити файл для завантаження'/>
                                 </div>
                             :
@@ -132,7 +133,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
                                     onDragLeave={e => dragLeaveHandler(e)}
                                     onDragOver={e => dragStartHandler(e)}
                                 >
-                                    <UploadFileIcon/>
+                                    <Icon Svg={UploadFileIcon}/>
                                     <Text title='Натисніть або перетягніть файл для завантаження'/>
                                     <Text title='(.csv)'/>
                                 </div>

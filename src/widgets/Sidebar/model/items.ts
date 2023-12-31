@@ -1,5 +1,6 @@
 import React from "react";
-import AboutIcon from 'shared/assets/icons/about-20-20.svg';
+import ContentEmail from 'shared/assets/icons/mail-forward.svg';
+import UploadFile from 'shared/assets/icons/cloud-upload.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import ProfileIcon from 'shared/assets/icons/profile.svg';
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
@@ -18,12 +19,12 @@ export const SidebarItemsList: SidebarItemType[] = [
     },
     {
         path: RoutePath.about,
-        Icon: AboutIcon,
+        Icon: UploadFile,
         text: 'Завантаження файлу'
     },
     {
         path: RoutePath.text,
-        Icon: AboutIcon,
+        Icon: ContentEmail,
         text: 'Текст для пошти'
     },
     {
