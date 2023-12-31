@@ -1,7 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 import { memo } from 'react';
 
+export enum TextAlign {
+    LEFT = 'left',
+    RIGHT = 'right',
+    CENTER = 'center'
+}
 export enum TextTheme {
     PRIMARY = 'primary',
     ERROR = 'error'
@@ -12,7 +17,8 @@ interface TextProps {
     title?: string;
     text?: string;
     textInverted?: string;
-    theme?: TextTheme
+    theme?: TextTheme;
+    align?: TextAlign;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -21,11 +27,16 @@ export const Text = memo((props: TextProps) => {
         text,
         title,
         textInverted,
-        theme = TextTheme.PRIMARY
+        theme = TextTheme.PRIMARY,
+        align = TextAlign.LEFT,
     } = props;
 
+    const mods: Mods = {
+        [cls[theme]]: true,
+        [cls[align]]: true,
+    }
     return (
-        <div className={classNames('', {[cls[theme]]: true}, [className])}>
+        <div className={classNames('', mods, [className])}>
             {title && <p className={cls.title}>{ title}</p>}
             {text && <p className={cls.text}>{ text}</p>}
             {textInverted && <p className={cls.textInverted}>{ textInverted}</p>}

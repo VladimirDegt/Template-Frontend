@@ -2,8 +2,9 @@ import { classNames } from "shared/lib/classNames/classNames";
 import cls from './DeliveryReport.module.scss';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DeliveryReportProps } from './types';
+import { memo } from 'react';
 
-export const DeliveryReport = ({ className, deliveryReport }: DeliveryReportProps) => {
+export const DeliveryReport = memo(({ className, deliveryReport }: DeliveryReportProps) => {
 
     if(deliveryReport.length === 0) {
         return
@@ -49,5 +50,5 @@ export const DeliveryReport = ({ className, deliveryReport }: DeliveryReportProp
         </div>
     )
         ;
-}
+})
 

@@ -1,13 +1,13 @@
 import {DragAndDrop} from "features/DragAndDrop";
 import { DeliveryReport } from 'shared/ui/DeliveryReport';
-import { useState } from 'react';
-import { Axios } from 'axios';
+import { useCallback, useState } from 'react';
 
 const AboutPage = () => {
     const [deliveryReport, setDeliveryReport] = useState([]);
-    const addDeliveryReport = (report: []) => {
-        setDeliveryReport(report)
-    }
+    const addDeliveryReport = useCallback((report: []) => {
+        setDeliveryReport(report);
+    }, [setDeliveryReport]);
+
   return (
       <div>
           <DragAndDrop addDeliveryReport={addDeliveryReport}/>
