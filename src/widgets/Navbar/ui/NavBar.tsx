@@ -41,6 +41,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
+                <ThemeSwitcher />
                 <Button
                     theme={ButtonTheme.BACKGROUND_INVERTED}
                     className={cls.links}

@@ -11,6 +11,7 @@ interface TextProps {
     className?: string;
     title?: string;
     text?: string;
+    textInverted?: string;
     theme?: TextTheme
 }
 
@@ -19,6 +20,7 @@ export const Text = memo((props: TextProps) => {
         className,
         text,
         title,
+        textInverted,
         theme = TextTheme.PRIMARY
     } = props;
 
@@ -26,6 +28,7 @@ export const Text = memo((props: TextProps) => {
         <div className={classNames('', {[cls[theme]]: true}, [className])}>
             {title && <p className={cls.title}>{ title}</p>}
             {text && <p className={cls.text}>{ text}</p>}
+            {textInverted && <p className={cls.textInverted}>{ textInverted}</p>}
         </div>
     );
 })

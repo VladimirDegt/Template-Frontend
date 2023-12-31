@@ -9,13 +9,15 @@ import {Text, TextTheme} from "shared/ui/Text/Text";
 import {Button, ButtonSize, ButtonTheme} from "shared/ui/Button/Button";
 import {$api} from "shared/api/api";
 import {Loader} from "shared/ui/Loader/ui/Loader";
+import { Axios } from 'axios';
 
 interface DragAndDropProps {
     className?: string;
+    addDeliveryReport: (data: []) => void
 }
 const LOCAL_TEXT_EDITOR = 'editor';
 const toastId = "custom-id-yes";
-export const DragAndDrop = memo(({className}: DragAndDropProps) => {
+export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProps) => {
     const [drag, setDrag] = useState(false);
     const [nameFile, setNameFile] = useState('');
     const [file, setFile] = useState<null | Blob>(null);
@@ -69,7 +71,7 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
         setFile(files[0])
     }
 
-    async function onClickBtnSend(e: React.MouseEvent<HTMLButtonElement>) {
+    async function onClickBtnSend(e: React.MouseEvent<HTMLButtonElement>): Promise<void> {
         e.preventDefault();
 
         if(!localStorage.getItem(LOCAL_TEXT_EDITOR)) {
@@ -86,8 +88,9 @@ export const DragAndDrop = memo(({className}: DragAndDropProps) => {
                 const response = await $api.post('customers/sendFile', formData)
                 if (!response.data) {
                     toast.error('Помилка відправки файла', {toastId})
+                    return
                 }
-                toast.success('Файл доставлено', {toastId})
+                addDeliveryReport(response.data)
             } catch (e) {
                 toast.error('Помилка відправки файла', {toastId})
             } finally {

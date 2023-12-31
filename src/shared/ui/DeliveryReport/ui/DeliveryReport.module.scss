@@ -1,0 +1,21 @@
+.DeliveryReport {
+    width: 100%;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.containerTable {
+    margin-top: 12px;
+    border-collapse: collapse;
+}
+
+th, td {
+    min-width: 300px;
+    border: solid 1px var(--primary-color);
+    padding: 8px;
+    text-align: center;
+}
