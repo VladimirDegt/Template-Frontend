@@ -26,14 +26,14 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 2px dashed var(--inverted-primary-color);
+    border: 2px dashed var(--primary-color);
     font-size: 20px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: border-color 0.3s ease;
 }
 
 .drop-area:hover {
-    background-color: var(--inverted-primary-color);
+    border-color: var(--inverted-primary-color);
 }
 
 .fileInput {
