@@ -11,6 +11,7 @@ import {$api} from "shared/api/api";
 import {Loader} from "shared/ui/Loader/ui/Loader";
 import { Axios } from 'axios';
 import { Icon } from 'shared/ui/Icon/Icon';
+import {ListBox} from "shared/ui/ListBox/ListBox";
 
 interface DragAndDropProps {
     className?: string;
@@ -63,11 +64,10 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
         setDrag(false);
 
         if (!validateDropFile(files)) {
-            toast.error('Не вірний формат файлу оба більше одного', {autoClose: 2000, toastId})
+            toast.error('Не вірний формат файлу', {autoClose: 2000, toastId})
             setNameFile('Файл не обрано')
             return
         }
-        toast.success('Готов до відправки', {toastId})
         setNameFile(`${files[0].name}`)
         setFile(files[0])
     }
@@ -152,6 +152,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
                 >
                     <Text title={'Відправити'}/>
                 </Button>
+                <ListBox />
                 {nameFile
                     ? <Text title={nameFile}/>
                     : <Text title={'Файл не обрано'}/>
