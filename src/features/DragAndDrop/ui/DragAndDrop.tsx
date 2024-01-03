@@ -1,5 +1,4 @@
-import {toast, ToastContainer} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import React, {memo, useState} from 'react';
 import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './DragAndDrop.module.scss';
@@ -12,6 +11,7 @@ import {Loader} from "shared/ui/Loader/ui/Loader";
 import { Axios } from 'axios';
 import { Icon } from 'shared/ui/Icon/Icon';
 import {ListBox} from "shared/ui/ListBox/ListBox";
+import {useToastLib} from "shared/lib/ui/ToastProvider";
 
 interface DragAndDropProps {
     className?: string;
@@ -19,7 +19,8 @@ interface DragAndDropProps {
 }
 const LOCAL_TEXT_EDITOR = 'editor';
 const toastId = "custom-id-yes";
-export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProps) => {
+export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndDropProps) => {
+    const {Toast} = useToastLib();
     const [drag, setDrag] = useState(false);
     const [nameFile, setNameFile] = useState('');
     const [file, setFile] = useState<null | Blob>(null);
@@ -41,7 +42,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
         setDrag(false);
 
         if (!validateDropFile(files)) {
-            toast.error('Не вірний формат файлу обо більше одного', {autoClose: 2000, toastId})
+            Toast.toast.error('Не вірний формат файлу обо більше одного', {autoClose: 2000, toastId})
             setNameFile('Файл не обрано')
             return
         }
@@ -52,7 +53,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
     function onClickBtnClear() {
         setDrag(false)
         setNameFile('Файл не обрано')
-        toast.info("Очищено", {toastId})
+        Toast.toast.info("Очищено", {toastId})
     }
 
     function onUploadFile(e: React.ChangeEvent<HTMLInputElement>) {
@@ -64,7 +65,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
         setDrag(false);
 
         if (!validateDropFile(files)) {
-            toast.error('Не вірний формат файлу', {autoClose: 2000, toastId})
+            Toast.toast.error('Не вірний формат файлу', {autoClose: 2000, toastId})
             setNameFile('Файл не обрано')
             return
         }
@@ -76,7 +77,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
         e.preventDefault();
 
         if(!localStorage.getItem(LOCAL_TEXT_EDITOR)) {
-            toast.error('Потрібно сберегти повідомлення для пошти', {toastId})
+            Toast.toast.error('Потрібно сберегти повідомлення для пошти', {toastId})
         }
 
         if (file !== null) {
@@ -88,12 +89,12 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
                 setIsLoading(true)
                 const response = await $api.post('customers/sendFile', formData)
                 if (!response.data) {
-                    toast.error('Помилка відправки файла', {toastId})
+                    Toast.toast.error('Помилка відправки файла', {toastId})
                     return
                 }
                 addDeliveryReport(response.data)
             } catch (e) {
-                toast.error('Помилка відправки файла', {toastId})
+                Toast.toast.error('Помилка відправки файла', {toastId})
             } finally {
                 setIsLoading(false)
             }
@@ -103,13 +104,13 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
             setNameFile('');
             return
         }
-        toast.info('Потрібно вибрати файл', {toastId})
+        Toast.toast.info('Потрібно вибрати файл', {toastId})
         return
     }
 
     return (
         <div className={classNames(cls.app, {}, [className])}>
-            <ToastContainer autoClose={1500}/>
+            <Toast.ToastContainer autoClose={1500}/>
             {isLoading
                 ? <div className={cls.containerLoader}><Loader /></div>
                 : (
@@ -176,3 +177,13 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
         </div>
     );
 })
+
+export const DragAndDrop = memo((props:DragAndDropProps) => {
+    const {isLoaded} = useToastLib();
+
+    if(!isLoaded) {
+        return <div>Loading...</div>
+    }
+
+    return <DragAndDropContent {...props}/>
+} )

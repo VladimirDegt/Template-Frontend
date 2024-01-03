@@ -29,14 +29,6 @@ export const DeliveryReport = memo(({ className, deliveryReport }: DeliveryRepor
                                         <td><Text textInverted={value['Email замовника']}/></td>
                                     </>
                                 )}
-
-                                {/*{reason && (*/}
-                                {/*    <>*/}
-                                {/*        <td><Text textInverted={reason.customer}/></td>*/}
-                                {/*        <td><Text textInverted={reason.email}/></td>*/}
-                                {/*    </>*/}
-                                {/*)}*/}
-
                                 {status === 'fulfilled'
                                     ? <td><Text textInverted={'доставлено'}/></td>
                                     : <td><Text textInverted={'не доставлено'} theme={TextTheme.ERROR}/></td>
