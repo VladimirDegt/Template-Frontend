@@ -1,6 +1,6 @@
  interface IValue {
-    customer: string;
-    email: string;
+    ['Замовник']: string;
+    ['Email замовника']: string;
 }
 
  interface IdeliveryReport {

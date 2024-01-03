@@ -25,17 +25,17 @@ export const DeliveryReport = memo(({ className, deliveryReport }: DeliveryRepor
                             <tr key={index}>
                                 {value && (
                                     <>
-                                        <td><Text textInverted={value.customer}/></td>
-                                        <td><Text textInverted={value.email}/></td>
+                                        <td><Text textInverted={value['Замовник']}/></td>
+                                        <td><Text textInverted={value['Email замовника']}/></td>
                                     </>
                                 )}
 
-                                {reason && (
-                                    <>
-                                        <td><Text textInverted={reason.customer}/></td>
-                                        <td><Text textInverted={reason.email}/></td>
-                                    </>
-                                )}
+                                {/*{reason && (*/}
+                                {/*    <>*/}
+                                {/*        <td><Text textInverted={reason.customer}/></td>*/}
+                                {/*        <td><Text textInverted={reason.email}/></td>*/}
+                                {/*    </>*/}
+                                {/*)}*/}
 
                                 {status === 'fulfilled'
                                     ? <td><Text textInverted={'доставлено'}/></td>

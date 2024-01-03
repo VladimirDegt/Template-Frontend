@@ -3,3 +3,8 @@
     stroke: var(--primary-color);
     stroke-width: 1.2;
 }
+
+.inverted {
+    fill: var(--inverted-bg-color);
+    stroke: var(--inverted-primary-color);
+}
