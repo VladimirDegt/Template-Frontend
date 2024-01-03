@@ -152,7 +152,7 @@ export const DragAndDrop = memo(({className, addDeliveryReport}: DragAndDropProp
                 >
                     <Text title={'Відправити'}/>
                 </Button>
-                <ListBox />
+                {/*<ListBox />*/}
                 {nameFile
                     ? <Text title={nameFile}/>
                     : <Text title={'Файл не обрано'}/>

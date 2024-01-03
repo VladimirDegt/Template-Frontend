@@ -45,6 +45,7 @@ export function TextEditor() {
                         'removeformat | help | emoticons | image | insertdatetime | save',
                     save_onsavecallback: handleSave,
                     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                    language: 'uk'
                 }}
             />
             <div className={cls.containerBtn}>

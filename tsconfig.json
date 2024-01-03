@@ -23,7 +23,9 @@
     // дозволяє працювати з пакета, що використовують common.js через import
     "esModuleInterop": true,
     // дозволяє ітерацію об'єктів типу FileList
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    // ізоляція при імпорті інтерфейсів, які перекидуємо у типи
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {

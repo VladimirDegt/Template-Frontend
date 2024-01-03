@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from './DeliveryReport.module.scss';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DeliveryReportProps } from './types';
+import type { DeliveryReportProps } from './types';
 import { memo } from 'react';
 
 export const DeliveryReport = memo(({ className, deliveryReport }: DeliveryReportProps) => {
