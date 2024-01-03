@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.23.3",
     "@svgr/webpack": "^8.1.0",
+    "@types/circular-dependency-plugin": "^5.0.8",
     "@types/history": "^2.0.51",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.0",
@@ -29,6 +30,7 @@
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^6.13.0",
     "@typescript-eslint/parser": "^6.13.0",
+    "circular-dependency-plugin": "^5.2.2",
     "css-loader": "^6.8.1",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
