@@ -15,7 +15,7 @@ import {ListBox} from "shared/ui/ListBox/ListBox";
 
 interface DragAndDropProps {
     className?: string;
-    addDeliveryReport: (data: []) => void
+    addDeliveryReport: (data: []) => void;
 }
 const LOCAL_TEXT_EDITOR = 'editor';
 const toastId = "custom-id-yes";

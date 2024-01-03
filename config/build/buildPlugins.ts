@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import {BuildOptions} from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
 export function buildPlugins({paths, isDev, apiUrl}: BuildOptions): webpack.WebpackPluginInstance[] {
 
@@ -23,6 +24,7 @@ export function buildPlugins({paths, isDev, apiUrl}: BuildOptions): webpack.Webp
 		new CircularDependencyPlugin({
 			exclude: /node_modules/,
 			failOnError: true
-		})
+		}),
+		new ForkTsCheckerWebpackPlugin()
 	];
 }
