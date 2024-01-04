@@ -11,7 +11,7 @@ import {Loader} from "@/shared/ui/Loader/ui/Loader";
 import { Axios } from 'axios';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import {ListBox} from "@/shared/ui/ListBox/ListBox";
-import {useToastLib} from "@/shared/lib/ui/ToastProvider";
+import {ToastProvider, useToastLib} from "@/shared/lib/ui/ToastProvider";
 
 interface DragAndDropProps {
     className?: string;
@@ -178,7 +178,7 @@ export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndD
     );
 })
 
-export const DragAndDrop = memo((props:DragAndDropProps) => {
+const DragAndDropAsync = (props:DragAndDropProps) => {
     const {isLoaded} = useToastLib();
 
     if(!isLoaded) {
@@ -186,4 +186,12 @@ export const DragAndDrop = memo((props:DragAndDropProps) => {
     }
 
     return <DragAndDropContent {...props}/>
-} )
+}
+
+export const DragAndDrop =(props:DragAndDropProps) => {
+    return (
+        <ToastProvider>
+            <DragAndDropAsync {...props}/>
+        </ToastProvider>
+    )
+}
