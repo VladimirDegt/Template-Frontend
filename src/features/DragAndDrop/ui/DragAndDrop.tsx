@@ -1,17 +1,17 @@
 // import 'react-toastify/dist/ReactToastify.css';
 import React, {memo, useState} from 'react';
-import {classNames} from 'shared/lib/classNames/classNames';
+import {classNames} from '@/shared/lib/classNames/classNames';
 import cls from './DragAndDrop.module.scss';
-import {validateDropFile} from "shared/lib/validateDropFile/validateDropFile";
-import UploadFileIcon from 'shared/assets/icons/uploadFile.svg'
-import {Text, TextTheme} from "shared/ui/Text/Text";
-import {Button, ButtonSize, ButtonTheme} from "shared/ui/Button/Button";
-import {$api} from "shared/api/api";
-import {Loader} from "shared/ui/Loader/ui/Loader";
+import {validateDropFile} from "@/shared/lib/validateDropFile/validateDropFile";
+import UploadFileIcon from '@/shared/assets/icons/uploadFile.svg'
+import {Text, TextTheme} from "@/shared/ui/Text/Text";
+import {Button, ButtonSize, ButtonTheme} from "@/shared/ui/Button/Button";
+import {$api} from "@/shared/api/api";
+import {Loader} from "@/shared/ui/Loader/ui/Loader";
 import { Axios } from 'axios';
-import { Icon } from 'shared/ui/Icon/Icon';
-import {ListBox} from "shared/ui/ListBox/ListBox";
-import {useToastLib} from "shared/lib/ui/ToastProvider";
+import { Icon } from '@/shared/ui/Icon/Icon';
+import {ListBox} from "@/shared/ui/ListBox/ListBox";
+import {useToastLib} from "@/shared/lib/ui/ToastProvider";
 
 interface DragAndDropProps {
     className?: string;
@@ -182,7 +182,7 @@ export const DragAndDrop = memo((props:DragAndDropProps) => {
     const {isLoaded} = useToastLib();
 
     if(!isLoaded) {
-        return <div>Loading...</div>
+        return <Loader/>
     }
 
     return <DragAndDropContent {...props}/>

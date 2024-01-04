@@ -1,6 +1,6 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './DeliveryReport.module.scss';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import type { DeliveryReportProps } from './types';
 import { memo } from 'react';
 

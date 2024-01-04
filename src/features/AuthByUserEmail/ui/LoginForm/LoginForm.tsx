@@ -1,14 +1,14 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from "react-redux";
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import cls from './LoginForm.module.scss'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/ui/Input';
 import { loginActions } from "../../model/slice/loginSlice";
 import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
-import { Text, TextTheme } from "shared/ui/Text/Text";
-import { useAppDispatch } from "shared/lib/hook/useAppDispatch/useAppDispatch";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
+import { useAppDispatch } from "@/shared/lib/hook/useAppDispatch/useAppDispatch";
 
 interface LoginFormProps {
     className?: string;

@@ -1,4 +1,4 @@
-import {TextEditor} from "features/TextEditor";
+import {TextEditor} from "@/features/TextEditor";
 
 const TextPage = () => {
 

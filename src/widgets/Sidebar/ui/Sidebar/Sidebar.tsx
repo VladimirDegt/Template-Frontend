@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { SidebarItemsList } from 'widgets/Sidebar/model/items';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { SidebarItemsList } from '@/widgets/Sidebar/model/items';
 import { SidebarItem } from './SidebarItem/SidebarItem';
 import { memo, useState } from 'react';
 

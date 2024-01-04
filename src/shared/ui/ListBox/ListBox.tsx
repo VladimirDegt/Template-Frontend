@@ -1,7 +1,7 @@
 import {Fragment, useState} from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import cls from './ListBox.module.scss'
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 
 const people = [
     { id: 1, name: 'Без даних' },

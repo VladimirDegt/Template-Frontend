@@ -1,9 +1,9 @@
 import { ToastContainer, toast } from 'react-toastify';
 import { Editor } from '@tinymce/tinymce-react';
 import 'react-toastify/dist/ReactToastify.css';
-import React, {useRef} from 'react';
-import {Button, ButtonSize, ButtonTheme} from "shared/ui/Button/Button";
-import {Text} from "shared/ui/Text/Text";
+import React, { useRef} from 'react';
+import {Button, ButtonSize, ButtonTheme} from "@/shared/ui/Button/Button";
+import {Text} from "@/shared/ui/Text/Text";
 import cls from './TextEditor.module.scss';
 
 const LOCAL_TEXT_EDITOR = 'editor';

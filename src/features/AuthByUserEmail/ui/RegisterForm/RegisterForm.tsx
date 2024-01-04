@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from './RegisterForm.module.scss';
-import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Input } from 'shared/ui/Input/ui/Input';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hook/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Input } from '@/shared/ui/Input/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { registerUser } from '../../model/services/registerUser/registerUser';
 import { registerActions } from '../../model/slice/registerSlice';
-import { getRegisterState } from 'features/AuthByUserEmail/model/selectors/getRegisterState/getRegisterState';
+import { getRegisterState } from '@/features/AuthByUserEmail/model/selectors/getRegisterState/getRegisterState';
 
 interface RegisterFormProps {
     className?: string;

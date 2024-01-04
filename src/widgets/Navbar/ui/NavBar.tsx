@@ -1,12 +1,12 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import cls from './Navbar.module.scss'
-import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
-import {Button, ButtonTheme} from "shared/ui/Button/Button";
+import {ThemeSwitcher} from "@/shared/ui/ThemeSwitcher";
+import {Button, ButtonTheme} from "@/shared/ui/Button/Button";
 import { memo, useCallback, useState } from "react";
-import { LoginModal } from 'features/AuthByUserEmail';
+import { LoginModal } from '@/features/AuthByUserEmail';
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "entities/User";
-import { RegisterModal } from 'features/AuthByUserEmail/ui/RegisterModal/RegisterModal';
+import { getUserAuthData, userActions } from "@/entities/User";
+import { RegisterModal } from '@/features/AuthByUserEmail/ui/RegisterModal/RegisterModal';
 
 interface NavbarProps {
     className?: string,

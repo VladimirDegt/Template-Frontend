@@ -1,6 +1,6 @@
-import {createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState} from "react";
 import 'react-toastify/dist/ReactToastify.css';
 type ToastType = typeof import('react-toastify');
+import {createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState} from "react";
 
 interface ToastContextPayload {
     Toast?: ToastType;
@@ -28,8 +28,8 @@ export const ToastProvider = ({children}: {children: ReactNode}) => {
     const ToastRef = useRef<ToastType>();
 
     useEffect(() => {
-        getAsyncToastModules().then(([resolve], ) => {
-            ToastRef.current = resolve;
+        getAsyncToastModules().then(([toast], ) => {
+            ToastRef.current = toast;
             setIsLoaded(true)
         })
     }, [])

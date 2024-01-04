@@ -1,9 +1,9 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
 import { StateSchema } from "./StateScheme";
-import { userReducer } from 'entities/User';
-import { loginReducer, registerReducer } from "features/AuthByUserEmail";
-import { profileReducer } from 'entities/Profile';
-import { $api } from 'shared/api/api';
+import { userReducer } from '@/entities/User';
+import { loginReducer, registerReducer } from "@/features/AuthByUserEmail";
+import { profileReducer } from '@/entities/Profile';
+import { $api } from '@/shared/api/api';
 import type { To } from '@remix-run/router';
 import type { NavigateOptions } from 'react-router/dist/lib/context';
 

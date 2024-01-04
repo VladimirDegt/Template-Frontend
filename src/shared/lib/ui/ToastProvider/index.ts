@@ -1,1 +1,1 @@
-export {ToastProvider, useToastLib} from "shared/lib/ui/ToastProvider/ToastProvider";
+export {ToastProvider, useToastLib} from "@/shared/lib/ui/ToastProvider/ToastProvider";

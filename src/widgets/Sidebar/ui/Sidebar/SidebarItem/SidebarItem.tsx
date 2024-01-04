@@ -1,10 +1,10 @@
-import {classNames} from 'shared/lib/classNames/classNames';
-import {AppLink} from 'shared/ui/AppLink';
-import {AppLinkTheme} from 'shared/ui/AppLink/AppLink';
-import {SidebarItemType} from 'widgets/Sidebar/model/items';
+import {classNames} from '@/shared/lib/classNames/classNames';
+import {AppLink} from '@/shared/ui/AppLink';
+import {AppLinkTheme} from '@/shared/ui/AppLink/AppLink';
+import {SidebarItemType} from '@/widgets/Sidebar/model/items';
 import cls from './SidebarItem.module.scss';
 import React, {memo} from 'react';
-import {Icon} from "shared/ui/Icon/Icon";
+import {Icon} from "@/shared/ui/Icon/Icon";
 
 interface SidebarItemProps {
     item: SidebarItemType,
