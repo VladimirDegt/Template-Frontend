@@ -1,8 +1,9 @@
-import React from "react";
-import ContentEmail from '@/shared/assets/icons/mail-forward.svg';
-import UploadFile from '@/shared/assets/icons/cloud-upload.svg';
-import MainIcon from '@/shared/assets/icons/main-20-20.svg';
-import ProfileIcon from '@/shared/assets/icons/profile.svg';
+import
+    React from "react";
+import ContentEmail from '@/shared/assets/icons/redactor.svg';
+import UploadFile from '@/shared/assets/icons/drag-drop.svg';
+import MainIcon from '@/shared/assets/icons/home.svg';
+import ProfileIcon from '@/shared/assets/icons/avatar.svg';
 import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 
 export interface SidebarItemType {

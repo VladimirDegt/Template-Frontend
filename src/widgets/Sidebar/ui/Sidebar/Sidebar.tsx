@@ -6,7 +6,7 @@ import { SidebarItem } from './SidebarItem/SidebarItem';
 import { memo, useState } from 'react';
 import {AppLogo} from "@/shared/ui/AppLogo";
 import {ThemeSwitcher} from "@/shared/ui/ThemeSwitcher";
-
+import Ava from "@/shared/assets/image/ava.png";
 interface SidebarProps {
     className?: string;
 }
@@ -17,8 +17,14 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     }
 
     return (
-        <aside className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}>
-            <AppLogo className={cls.appLogo} size={collapsed ? 30 : 50}/>
+        <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+            <img
+                className={cls.appLogo}
+                width={collapsed ? 30 : 50}
+                height={collapsed ? 30 : 50}
+                src={Ava}
+                alt='avatar'
+            />
             <div className={cls.items}>
                 {SidebarItemsList.map((item) => (
                     <SidebarItem
@@ -33,7 +39,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 type='button'
                 onClick={onToggle}
                 className={cls.collapsedBtn}
-                // theme={ButtonTheme.BACKGROUND_INVERTED}
                 size={ButtonSize.L}
                 circular
             >

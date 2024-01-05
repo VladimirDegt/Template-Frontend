@@ -1,6 +1,7 @@
-import {memo} from 'react';
+import
+{memo} from 'react';
 import cls from './AppLogo.module.scss';
-import AppSvg from '@/shared/assets/icons/app-image.svg';
+import AppSvg from '@/shared/assets/icons/ava.svg';
 import {classNames} from '@/shared/lib/classNames/classNames';
 
 interface AppLogoProps {
@@ -18,7 +19,6 @@ export const AppLogo = memo(({className, size=50}: AppLogoProps) => {
             <AppSvg
                 width={size}
                 height={size}
-                className={cls.appLogo}
             />
         </div>
     );

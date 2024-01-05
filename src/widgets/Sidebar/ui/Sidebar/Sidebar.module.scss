@@ -1,9 +1,10 @@
-.SidebarRedesigned {
+.Sidebar {
     position: relative;
     height: 100%;
     width: var(--sidebar-width);
     background-color: var(--light-bg-redesigned);
     border-radius: 32px;
+    padding-top: 20px;
 }
 
 .items {
@@ -30,6 +31,7 @@
     left: calc(var(--sidebar-width) - var(--font-size-l));
     top: 50%;
     background-color: var(--bg-redesigned);
+    z-index: 2;
 
     &:hover {
         color: var(--accent-redesigned);
@@ -56,5 +58,7 @@
 }
 
 .appLogo {
-    padding-top: 20px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
 }

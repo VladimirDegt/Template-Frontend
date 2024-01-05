@@ -20,8 +20,8 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
         >
             <Icon
                 Svg={ThemeIcon}
-                width={40}
-                height={40}
+                width={32}
+                height={32}
             />
         </Button>
     );

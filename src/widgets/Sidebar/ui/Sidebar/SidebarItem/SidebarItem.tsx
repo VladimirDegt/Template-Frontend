@@ -17,14 +17,16 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
         <AppLink
             variant='secondary'
             to={item.path}
-            className={classNames(cls.item, { [cls.collapsed]: collapsed })}
+            className={classNames(collapsed ?  cls.itemCollapsed : cls.item, { [cls.collapsed]: collapsed })}
             activeClassName={cls.active}
         >
-            <Icon
-                Svg={item.Icon}
-                width={24}
-                height={24}
-            />
+            <div className={cls.icon}>
+                <Icon
+                    Svg={item.Icon}
+                    width={32}
+                    height={32}
+                />
+            </div>
             <span className={cls.link}>
                 {item.text}
             </span>
