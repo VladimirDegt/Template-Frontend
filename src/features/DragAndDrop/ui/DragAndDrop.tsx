@@ -124,7 +124,11 @@ export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndD
                                     onDragOver={e => dragStartHandler(e)}
                                     onDrop={e => onDropHandler(e)}
                                 >
-                                    <Icon Svg={UploadFileIcon}/>
+                                    <Icon
+                                        Svg={UploadFileIcon}
+                                        width={80}
+                                        height={80}
+                                    />
                                     <Text title='Відпустити файл для завантаження'/>
                                 </div>
                             :
@@ -134,7 +138,11 @@ export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndD
                                     onDragLeave={e => dragLeaveHandler(e)}
                                     onDragOver={e => dragStartHandler(e)}
                                 >
-                                    <Icon Svg={UploadFileIcon}/>
+                                    <Icon
+                                        Svg={UploadFileIcon}
+                                        width={80}
+                                        height={80}
+                                    />
                                     <Text title='Натисніть або перетягніть файл для завантаження'/>
                                     <Text title='(.csv)'/>
                                 </div>
