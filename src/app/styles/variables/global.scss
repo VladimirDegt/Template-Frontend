@@ -1,5 +1,7 @@
 :root {
     --font-family-main: "Manrope", sans-serif;
+    --font-family-text-redesigned: 'Nunito Sans', sans-serif;
+    --font-family-header-redesigned: 'Roboto', sans-serif;
 
     --font-size-m: 16px;
     --font-line-m: 24px;
@@ -32,5 +34,12 @@
     --overlay-modal: rgba(0 0 0 / 60%);
     --red-light: #f00;
     --red-dark: #ce0505;
+
+    // redesigned
+    --font-m-redesigned: var(--font-size-m) / var(--font-line-m) var(--font-family-text-redesigned);
+
+    --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-text-redesigned);
+
+    --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
 
 }

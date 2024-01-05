@@ -4,6 +4,7 @@ import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import { SidebarItemsList } from '@/widgets/Sidebar/model/items';
 import { SidebarItem } from './SidebarItem/SidebarItem';
 import { memo, useState } from 'react';
+import {AppLogo} from "@/shared/ui/AppLogo";
 
 interface SidebarProps {
     className?: string;
@@ -15,7 +16,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     }
 
     return (
-        <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+        <aside className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}>
+            <AppLogo className={cls.appLogo}/>
             <div className={cls.items}>
                 {SidebarItemsList.map((item) => (
                     <SidebarItem
@@ -36,6 +38,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? ">" : "<"}
             </Button>
-        </div>
+        </aside>
     );
 })

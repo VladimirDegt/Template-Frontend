@@ -1,18 +1,25 @@
 @import "reset";
-@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Montserrat&display=swap";
+//@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Montserrat&display=swap";
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
 @import "themes/orange";
 
-body {
-    font: var(--font-m);
-    color: var(--primary-color);
-}
+//body {
+//    font: var(--font-m);
+//    color: var(--primary-color);
+//}
 
 .app {
     background-color: var(--bg-color);
     min-height: 100vh;
+}
+
+.app_redesigned {
+    background-color: var(--bg-redesigned);
+    min-height: 100vh;
+    font: var(--font-m-redesigned);
+    color: var(--text-redesigned);
 }
 
 .content-page {

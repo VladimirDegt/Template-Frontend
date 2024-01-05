@@ -23,3 +23,15 @@
     }
 }
 
+.SidebarRedesigned {
+    position: relative;
+    height: 100%;
+    width: 200px;
+    background-color: var(--light-bg-redesigned);
+    transition: width 0.3s;
+    border-radius: 32px;
+}
+
+.appLogo {
+    padding-top: 20px;
+}
