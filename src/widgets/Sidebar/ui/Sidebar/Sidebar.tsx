@@ -18,7 +18,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     return (
         <aside className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}>
-            <AppLogo className={cls.appLogo}/>
+            <AppLogo className={cls.appLogo} size={collapsed ? 30 : 50}/>
             <div className={cls.items}>
                 {SidebarItemsList.map((item) => (
                     <SidebarItem
@@ -33,7 +33,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 type='button'
                 onClick={onToggle}
                 className={cls.collapsedBtn}
-                theme={ButtonTheme.BACKGROUND_INVERTED}
+                // theme={ButtonTheme.BACKGROUND_INVERTED}
                 size={ButtonSize.L}
                 circular
             >

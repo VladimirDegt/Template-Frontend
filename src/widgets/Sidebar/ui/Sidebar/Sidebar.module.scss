@@ -1,14 +1,18 @@
-.Sidebar {
+.SidebarRedesigned {
     position: relative;
-    height: calc(100vh - var(--navbar-height));
+    height: 100%;
     width: var(--sidebar-width);
-    background-color: var(--inverted-bg-color);
-    transition: width 0.3s;
+    background-color: var(--light-bg-redesigned);
+    border-radius: 32px;
 }
+
 .items {
     position: relative;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 24px;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
     z-index: 1;
 }
 
@@ -22,9 +26,14 @@
 
 .collapsedBtn {
     position: absolute;
+    border: none;
     left: calc(var(--sidebar-width) - var(--font-size-l));
     top: 50%;
-    transition: left 0.3s;
+    background-color: var(--bg-redesigned);
+
+    &:hover {
+        color: var(--accent-redesigned);
+    }
 }
 
 .collapsed {
@@ -35,15 +44,15 @@
         left: calc(var(--sidebar-width-collapsed) - var(--font-size-l));
         top: 50%
     }
-}
-
-.SidebarRedesigned {
-    position: relative;
-    height: 100%;
-    width: 200px;
-    background-color: var(--light-bg-redesigned);
-    transition: width 0.3s;
-    border-radius: 32px;
+    .items {
+        position: relative;
+        margin-top: 40px;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+    }
 }
 
 .appLogo {

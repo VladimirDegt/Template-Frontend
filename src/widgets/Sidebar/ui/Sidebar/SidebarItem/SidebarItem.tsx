@@ -18,12 +18,12 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
             variant='secondary'
             to={item.path}
             className={classNames(cls.item, { [cls.collapsed]: collapsed })}
+            activeClassName={cls.active}
         >
             <Icon
                 Svg={item.Icon}
-                inverted
-                width={20}
-                height={20}
+                width={24}
+                height={24}
             />
             <span className={cls.link}>
                 {item.text}

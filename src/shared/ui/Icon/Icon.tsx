@@ -7,15 +7,14 @@ interface IconProps {
     Svg: React.FC<React.SVGProps<SVGSVGElement>>;
     width?: number;
     height?: number;
-    inverted?: boolean;
 }
 
 export const Icon = memo((props: IconProps) => {
-    const { className, Svg, inverted, ...otherProps } = props;
+    const { className, Svg,  ...otherProps } = props;
 
     return (
         <Svg
-            className={classNames(inverted ? cls.inverted : cls.Icon, {}, [
+            className={classNames(cls.Icon, {}, [
                 className,
             ])}
             {...otherProps}

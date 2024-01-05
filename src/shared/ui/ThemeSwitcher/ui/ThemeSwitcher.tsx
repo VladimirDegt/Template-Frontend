@@ -22,7 +22,6 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
                 Svg={ThemeIcon}
                 width={40}
                 height={40}
-                inverted
             />
         </Button>
     );

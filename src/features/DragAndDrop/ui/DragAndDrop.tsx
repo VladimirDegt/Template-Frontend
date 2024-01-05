@@ -1,16 +1,11 @@
-// import 'react-toastify/dist/ReactToastify.css';
 import React, {memo, useState} from 'react';
 import {classNames} from '@/shared/lib/classNames/classNames';
 import cls from './DragAndDrop.module.scss';
 import {validateDropFile} from "@/shared/lib/validateDropFile/validateDropFile";
-import UploadFileIcon from '@/shared/assets/icons/uploadFile.svg'
 import {Text, TextTheme} from "@/shared/ui/Text/Text";
 import {Button, ButtonSize, ButtonTheme} from "@/shared/ui/Button/Button";
 import {$api} from "@/shared/api/api";
 import {Loader} from "@/shared/ui/Loader/ui/Loader";
-import { Axios } from 'axios';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import {ListBox} from "@/shared/ui/ListBox/ListBox";
 import {ToastProvider, useToastLib} from "@/shared/lib/ui/ToastProvider";
 
 interface DragAndDropProps {
@@ -124,11 +119,6 @@ export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndD
                                     onDragOver={e => dragStartHandler(e)}
                                     onDrop={e => onDropHandler(e)}
                                 >
-                                    <Icon
-                                        Svg={UploadFileIcon}
-                                        width={80}
-                                        height={80}
-                                    />
                                     <Text title='Відпустити файл для завантаження'/>
                                 </div>
                             :
@@ -138,11 +128,6 @@ export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndD
                                     onDragLeave={e => dragLeaveHandler(e)}
                                     onDragOver={e => dragStartHandler(e)}
                                 >
-                                    <Icon
-                                        Svg={UploadFileIcon}
-                                        width={80}
-                                        height={80}
-                                    />
                                     <Text title='Натисніть або перетягніть файл для завантаження'/>
                                     <Text title='(.csv)'/>
                                 </div>
