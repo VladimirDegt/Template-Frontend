@@ -5,6 +5,7 @@ import { SidebarItemsList } from '@/widgets/Sidebar/model/items';
 import { SidebarItem } from './SidebarItem/SidebarItem';
 import { memo, useState } from 'react';
 import {AppLogo} from "@/shared/ui/AppLogo";
+import {ThemeSwitcher} from "@/shared/ui/ThemeSwitcher";
 
 interface SidebarProps {
     className?: string;
@@ -38,6 +39,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? ">" : "<"}
             </Button>
+            <div className={cls.switchers}>
+                <ThemeSwitcher/>
+            </div>
         </aside>
     );
 })

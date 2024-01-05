@@ -1,6 +1,5 @@
 import {classNames} from "@/shared/lib/classNames/classNames";
 import cls from './Navbar.module.scss'
-import {ThemeSwitcher} from "@/shared/ui/ThemeSwitcher";
 import {Button, ButtonTheme} from "@/shared/ui/Button/Button";
 import { memo, useCallback, useState } from "react";
 import { LoginModal } from '@/features/AuthByUserEmail';
@@ -41,7 +40,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.NavbarRedesigned, {}, [className])}>
-                <ThemeSwitcher />
                 <Button
                     theme={ButtonTheme.BACKGROUND_INVERTED}
                     className={cls.links}
@@ -55,7 +53,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            <ThemeSwitcher />
             <div className={cls.links}>
                 <Button
                     theme={ButtonTheme.BACKGROUND_INVERTED}
