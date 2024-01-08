@@ -1,11 +1,11 @@
 .title {
     font: var(--font-l);
-    color: var(--primary-color);
+    color: var(--text-redesigned);
 }
 
 .text {
     font: var(--font-m);
-    color: var(--secondary-color);
+    color: var(--text-redesigned);
 }
 
 .textInverted {
@@ -15,7 +15,7 @@
 
 .error {
     .title {
-        color: var(--red-light);
+        color: var(--accent-redesigned);
     }
 
     .text {

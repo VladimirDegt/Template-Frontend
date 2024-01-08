@@ -20,16 +20,14 @@ export const App = () => {
     }, [dispatch])
 
     return (
-        <div className={classNames("app_redesigned", {}, [theme])}>
+        <div id="app" className={classNames("app_redesigned", {}, [theme])}>
             <Suspense fallback="">
                 <MainLayout
                     header={<Navbar/>}
                     content={<AppRouter/>}
                     sidebar={<Sidebar/>}
-                    toolbar={<div>werrrrr</div>}
+                    toolbar={<div>Контент для toolbar</div>}
                 />
-                {/*<div className="content-page">*/}
-                {/*</div>*/}
             </Suspense>
         </div>
     );

@@ -9,6 +9,8 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { registerUser } from '../../model/services/registerUser/registerUser';
 import { registerActions } from '../../model/slice/registerSlice';
 import { getRegisterState } from '@/features/AuthByUserEmail/model/selectors/getRegisterState/getRegisterState';
+import IconEye from '@/shared/assets/icons/eye.svg'
+import {Icon} from "@/shared/ui/Icon/Icon";
 
 interface RegisterFormProps {
     className?: string;
@@ -59,6 +61,7 @@ const RegisterForm = memo(({ className, onSuccess }: RegisterFormProps) => {
                 value={password}
                 placeholder="Введіть пароль"
                 onChange={onChangeUserPassword}
+                addonRight={<Icon Svg={IconEye}/>}
             />
             <Button
                 theme={ButtonTheme.BACKGROUND_INVERTED}

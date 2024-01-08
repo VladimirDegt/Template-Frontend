@@ -6,7 +6,13 @@
 }
 
 .loginBtn {
+    min-width: 165px;
     margin-left: auto;
-    border-radius: 6px;
-    color: var(--secondary-color)
+    border-radius: 48px;
+    color: var(--text-redesigned);
+    background-color: var(--icon-redesigned);
+    transition: var(--transition);
+    &:hover {
+        background-color: var(--accent-redesigned);
+    }
 }

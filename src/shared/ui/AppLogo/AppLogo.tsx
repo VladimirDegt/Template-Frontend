@@ -1,8 +1,7 @@
-import
-{memo} from 'react';
+import {memo} from 'react';
 import cls from './AppLogo.module.scss';
-import AppSvg from '@/shared/assets/icons/ava.svg';
 import {classNames} from '@/shared/lib/classNames/classNames';
+import Ava from "@/shared/assets/image/ava.png";
 
 interface AppLogoProps {
     className?: string;
@@ -14,12 +13,16 @@ export const AppLogo = memo(({className, size=50}: AppLogoProps) => {
         <div
             className={classNames(cls.appLogoWrapper, {}, [className])}
         >
-            <div className={cls.gradientBig}/>
-            <div className={cls.gradientSmall}/>
-            <AppSvg
+            <img
+                className={cls.appLogo}
                 width={size}
                 height={size}
+                src={Ava}
+                alt='avatar'
             />
+            <div className={cls.gradientBig}/>
+            <div className={cls.gradientSmall}/>
+
         </div>
     );
 });
