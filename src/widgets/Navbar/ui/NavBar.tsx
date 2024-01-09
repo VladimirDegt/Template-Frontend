@@ -8,7 +8,8 @@ import {RegisterModal} from '@/features/AuthByUserEmail/ui/RegisterModal/Registe
 import {Dropdown} from "@/shared/ui/Dropdown/Dropdown";
 import {AppLogo} from "@/shared/ui/AppLogo";
 import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
-import {Text, TextTheme} from "@/shared/ui/Text/Text";
+import {Text} from "@/shared/ui/Text/Text";
+import {Button, ButtonTheme} from "@/shared/ui/Button/Button";
 
 interface NavbarProps {
     className?: string,
@@ -66,7 +67,7 @@ export const Navbar = memo(({className}: NavbarProps) => {
     }
 
     return (
-        <header className={classNames(cls.navbar, {}, [className])}>
+        <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
             <Dropdown
                 direction= 'bottom left'
                 className={cls.dropdown}
@@ -81,11 +82,10 @@ export const Navbar = memo(({className}: NavbarProps) => {
                     },
                 ]}
                 trigger={
-                    <Text
-                        className={cls.btn}
-                        title={'Увійти'}
-                    />
-                }
+                    <p className={cls.btn}>
+                        Увійти
+                    </p>
+            }
             />
 
             <RegisterModal

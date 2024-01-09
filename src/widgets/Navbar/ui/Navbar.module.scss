@@ -1,14 +1,7 @@
-.Navbar {
-    width: 100%;
-    height: var(--navbar-height);
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background-color: var(--inverted-bg-color);
-}
-
 .NavbarRedesigned {
+    position: relative;
     padding: 16px;
+    z-index: 1;
 }
 
 .links,
@@ -21,6 +14,11 @@
 }
 
 .btn {
-    margin-top: 16px;
-    margin-right: 16px;
+    color: var(--text-redesigned);
+    font-size: 24px;
+    transition: color 0.3s;
+
+    &:hover {
+        color: var(--accent-redesigned);
+    }
 }

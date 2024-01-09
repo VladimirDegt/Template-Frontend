@@ -8,6 +8,7 @@ import {LOCAL_STORAGE_THEME_KEY} from "@/app/providers/ThemeProvider/lib/ThemeCo
 import {useDispatch} from "react-redux";
 import {userActions} from "@/entities/User";
 import {MainLayout} from "@/shared/layouts/MainLayout";
+import {Toolbar} from "@/widgets/Toolbar";
 
 document.body.className = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) || 'app_light_theme';
 
@@ -26,7 +27,7 @@ export const App = () => {
                     header={<Navbar/>}
                     content={<AppRouter/>}
                     sidebar={<Sidebar/>}
-                    toolbar={<div>Контент для toolbar</div>}
+                    toolbar={<Toolbar />}
                 />
             </Suspense>
         </div>
