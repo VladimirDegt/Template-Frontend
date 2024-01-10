@@ -9,10 +9,10 @@ const AboutPage = () => {
     }, [setDeliveryReport]);
 
     return (
-        <div>
+        <main>
             <DragAndDrop addDeliveryReport={addDeliveryReport}/>
             <DeliveryReport deliveryReport={deliveryReport}/>
-        </div>
+        </main>
     )
 };
 

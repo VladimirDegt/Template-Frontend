@@ -1,0 +1,22 @@
+.EditableProfileCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btnBlock {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 16px;
+}
+
+.btn {
+    min-width: 140px;
+    border-radius: 8px;
+    transition: var(--transition);
+
+    &:hover {
+        background-color: var(--accent-redesigned);
+    }
+}

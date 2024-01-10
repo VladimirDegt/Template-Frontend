@@ -1,11 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ProfileSchema } from '../types/profile';
+import {Profile } from '../types/profile';
 
-const initialState: ProfileSchema = {
+const initialState: Profile= {
     readonly: true,
     isLoading: false,
     error:undefined,
-    data: undefined
+    banned: false,
+    banReason: '',
+    roles: [],
+    posts: [],
+    avatar: '',
+    first: '',
+    lastname: '',
+    age: '',
+    // currency?: Currency;
+    // country?: Country;
+    city: 'Kharkiv',
+    username: '',
 };
 
 export const profileSlice = createSlice({

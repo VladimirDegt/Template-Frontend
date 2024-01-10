@@ -1,6 +1,7 @@
 import {classNames, Mods} from "@/shared/lib/classNames/classNames";
 import cls from './Input.module.scss';
 import React, {InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState} from 'react';
+import {Text} from "@/shared/ui/Text/Text";
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
@@ -12,6 +13,7 @@ interface InputProps extends HTMLInputProps {
     readonly?: boolean;
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
+    label?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -25,6 +27,7 @@ export const Input = memo((props: InputProps) => {
         readonly,
         addonLeft,
         addonRight,
+        label,
         ...otherProps
     } = props;
 
@@ -56,7 +59,7 @@ export const Input = memo((props: InputProps) => {
         [cls.withAddonRight]: Boolean(addonRight),
     };
 
-    return (
+    const input = (
         <div className={classNames(cls.InputWrapper, mods, [className])}>
             <div className={cls.addonLeft}>{addonLeft}</div>
             <input
@@ -74,6 +77,14 @@ export const Input = memo((props: InputProps) => {
             <div className={cls.addonRight}>{addonRight}</div>
         </div>
     )
-        ;
+    if(label) {
+        return (
+            <div className={cls.blockInput}>
+                <Text text={label}/>
+                {input}
+            </div>
+        )
+    }
+    return input
 })
 

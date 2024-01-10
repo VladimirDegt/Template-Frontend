@@ -7,8 +7,8 @@ interface NotFoundPageProps {
 
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {
     return (
-        <div className={classNames(cls.NotFoundPage, {}, [className])}>
+        <main className={classNames(cls.NotFoundPage, {}, [className])}>
             Page not found
-        </div>
+        </main>
     );
 }

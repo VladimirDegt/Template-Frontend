@@ -43,3 +43,10 @@
 .readonly {
     opacity: 0.7;
 }
+
+.blockInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}

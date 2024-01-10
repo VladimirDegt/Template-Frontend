@@ -6,10 +6,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "@/entities/User";
 import {RegisterModal} from '@/features/AuthByUserEmail/ui/RegisterModal/RegisterModal';
 import {Dropdown} from "@/shared/ui/Dropdown/Dropdown";
-import {AppLogo} from "@/shared/ui/AppLogo";
 import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
-import {Text} from "@/shared/ui/Text/Text";
-import {Button, ButtonTheme} from "@/shared/ui/Button/Button";
+import {Avatar} from "@/shared/ui/Avatar";
+import ImgAvatar from '@/shared/assets/image/avatar.png'
 
 interface NavbarProps {
     className?: string,
@@ -57,9 +56,10 @@ export const Navbar = memo(({className}: NavbarProps) => {
                             onClick: onLogout,
                         },
                     ]}
-                    trigger={<AppLogo
-                        size={30}
-                        // src={authData.avatar}
+                    trigger={<Avatar
+                        src={ImgAvatar}
+                        alt={'Аватарка користувача'}
+                        size={40}
                     />}
                 />
             </header>
