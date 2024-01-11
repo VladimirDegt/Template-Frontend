@@ -1,12 +1,13 @@
 import {classNames} from "@/shared/lib/classNames/classNames";
 import cls from './EditableProfileCard.module.scss'
-import {memo, useCallback} from "react";
+import {memo} from "react";
 import {Avatar} from "@/shared/ui/Avatar";
 import ImgAvatar from '@/shared/assets/image/avatar.png'
 import {Input} from "@/shared/ui/Input/ui/Input";
 import {useAppDispatch} from "@/shared/lib/hook/useAppDispatch/useAppDispatch";
 import {Profile} from "@/entities/Profile";
-import {Currency} from "@/entities/Currency";
+import {CurrencySelect} from "@/entities/Currency/ui/CurrencySelect";
+import {CountrySelect} from "@/entities/Country/ui/CountrySelect";
 
 interface EditableProfileCardProps {
     className?: string,
@@ -77,12 +78,13 @@ export const EditableProfileCard = memo(({className, data}: EditableProfileCardP
         <div className={classNames(cls.EditableProfileCard, {}, [className])}>
             <Avatar
                 src={ImgAvatar}
-                size={50}
+                size={100}
                 alt={'Аватар користувача'}
             />
-            <div>
+            <div className={cls.containerInput}>
                 <div className={cls.blockInput}>
                     <Input
+                        className={cls.input}
                         value={data?.first}
                         label={'Ім`я'}
                         // onChange={onChangeFirstname}
@@ -93,7 +95,7 @@ export const EditableProfileCard = memo(({className, data}: EditableProfileCardP
                         // onChange={onChangeLastname}
                     />
                     <Input
-                        // value={data?.age}
+                        value={data?.age}
                         label={'Вік'}
                         // onChange={onChangeAge}
                     />
@@ -107,23 +109,15 @@ export const EditableProfileCard = memo(({className, data}: EditableProfileCardP
                     <Input
                         value={data?.username}
                         label={'Нікнейм'}
-                        // onChange={onChangeLastname}
+                        // onChange={onChangeUsername}
                     />
                     <Input
                         value={data?.avatar}
                         label={'Аватар'}
-                        // onChange={onChangeLastname}
+                        // onChange={onChangeAvatar}
                     />
-                    {/*<Input*/}
-                    {/*    value={data?.currency}*/}
-                    {/*    label={'Вік'}*/}
-                    {/*    // onChange={onChangeAge}*/}
-                    {/*/>*/}
-                    {/*<Input*/}
-                    {/*    value={data?.country}*/}
-                    {/*    label={'Місто'}*/}
-                    {/*    onChange={onChangeCity}*/}
-                    {/*/>*/}
+                    <CurrencySelect/>
+                    <CountrySelect/>
                 </div>
             </div>
 

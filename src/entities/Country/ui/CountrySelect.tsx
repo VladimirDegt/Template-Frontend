@@ -1,25 +1,25 @@
 import {memo, useCallback, useState} from 'react';
-import { Currency } from '../model/types/currency';
 import {ListBox} from "@/shared/ui/ListBox/ListBox";
-interface CurrencySelectProps {
+import {Country} from "../model/country";
+interface CountrySelectProps {
     className?: string;
-    value?: Currency;
-    onChange?: (value: Currency) => void;
+    value?: Country;
+    onChange?: (value: Country) => void;
     readonly?: boolean;
 }
 
 const options = [
-    { value: Currency.UAH, content: Currency.UAH },
-    { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
+    { value: Country.Ukraine, content: Country.Ukraine },
+    { value: Country.Poland, content: Country.Poland },
+    { value: Country.Turkey, content: Country.Turkey },
 ];
 
-export const CurrencySelect = memo(
-    ({ className, readonly }: CurrencySelectProps) => {
-        const [valueChange, setValueChange] = useState('Виберіть валюту')
+export const CountrySelect = memo(
+    ({ className, readonly }: CountrySelectProps) => {
+        const [valueChange, setValueChange] = useState('Виберіть країну')
 
         const onChangeHandler = useCallback(
-        //@ts-ignore
+            //@ts-ignore
             (selectedValue) => {
                 setValueChange(selectedValue.value)
             },
@@ -33,8 +33,8 @@ export const CurrencySelect = memo(
                 value={valueChange}
                 items={options}
                 readonly={readonly}
-                label='Валюта'
-                defaultValue='Виберіть валюту'
+                label='Країна'
+                defaultValue='Виберіть країну'
                 direction="top"
             />
         );

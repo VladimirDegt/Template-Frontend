@@ -4,6 +4,17 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+
+    div button {
+        min-width: 300px;
+        height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 48px;
+        border: 2px solid var(--icon-redesigned);
+        font: var(--font-m-redesigned);
+    }
 }
 
 .trigger {
@@ -48,4 +59,14 @@
 
 .btnSend:hover {
     background-color: var(--inverted-primary-color);
+}
+
+.optionsTop {
+    bottom: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

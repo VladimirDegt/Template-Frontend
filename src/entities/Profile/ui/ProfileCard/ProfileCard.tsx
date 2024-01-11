@@ -4,12 +4,12 @@ import {EditableProfileCard, EditableProfileCardHeader} from "@/features/Editabl
 import { getProfileState } from "@/entities/Profile/model/selectors/getProfileState";
 
 export const ProfileCard = memo(() => {
-    const city = useSelector(getProfileState);
+    const profileState = useSelector(getProfileState);
 
     return (
         <>
             <EditableProfileCardHeader/>
-            <EditableProfileCard data={city}/>
+            <EditableProfileCard data={profileState}/>
         </>
     );
 });
