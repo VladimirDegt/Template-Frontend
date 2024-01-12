@@ -1,12 +1,13 @@
 import React, {memo, useState} from 'react';
 import {classNames} from '@/shared/lib/classNames/classNames';
 import cls from './DragAndDrop.module.scss';
-import {validateDropFile} from "@/shared/lib/validateDropFile/validateDropFile";
+import {validateExtentionFile, validateSizeFile} from '@/shared/lib/validateUploadFile';
 import {Text, TextTheme} from "@/shared/ui/Text/Text";
 import {Button, ButtonSize, ButtonTheme} from "@/shared/ui/Button/Button";
 import {$api} from "@/shared/api/api";
 import {Loader} from "@/shared/ui/Loader/ui/Loader";
 import {ToastProvider, useToastLib} from "@/shared/lib/ui/ToastProvider";
+
 
 interface DragAndDropProps {
     className?: string;
@@ -14,6 +15,7 @@ interface DragAndDropProps {
 }
 const LOCAL_TEXT_EDITOR = 'editor';
 const toastId = "custom-id-yes";
+const extentionsFile = ['csv'];
 export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndDropProps) => {
     const {Toast} = useToastLib();
     const [drag, setDrag] = useState(false);
@@ -36,7 +38,7 @@ export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndD
         const files: File[] = [...e.dataTransfer.files]
         setDrag(false);
 
-        if (!validateDropFile(files)) {
+        if (!validateExtentionFile(files, extentionsFile)) {
             Toast.toast.error('Не вірний формат файлу обо більше одного', {autoClose: 2000, toastId})
             setNameFile('Файл не обрано')
             return
@@ -59,11 +61,17 @@ export const DragAndDropContent = memo(({className, addDeliveryReport}: DragAndD
         const files: FileList  = e.target.files
         setDrag(false);
 
-        if (!validateDropFile(files)) {
+        if (!validateExtentionFile(files, extentionsFile)) {
             Toast.toast.error('Не вірний формат файлу', {autoClose: 2000, toastId})
             setNameFile('Файл не обрано')
             return
         }
+
+        if(!validateSizeFile(files[0].size)) {
+            Toast.toast.error('Розмір файлу повинен бути не більше 5Mb', {autoClose: 2000, toastId})
+            return
+        }
+
         setNameFile(`${files[0].name}`)
         setFile(files[0])
     }

@@ -2,6 +2,9 @@ import React, {memo, useRef} from 'react';
 import cls from './UploadFile.module.scss';
 import {classNames} from '@/shared/lib/classNames/classNames';
 import {Button, ButtonTheme} from "@/shared/ui/Button/Button";
+import {validateExtentionFile, validateSizeFile} from '@/shared/lib/validateUploadFile';
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 interface UploadFileProps {
     className?: string;
     label?: string;
@@ -9,6 +12,8 @@ interface UploadFileProps {
     getNewAvatar: (file: File) => void
 }
 
+const toastId = "custom-id-yes";
+const extentionsFile = ['jpg','jpeg', 'png', 'webp'];
 export const UploadFile = memo((props: UploadFileProps) => {
     const {
         className,
@@ -29,28 +34,40 @@ export const UploadFile = memo((props: UploadFileProps) => {
         if (!e.target.files) {
             return
         }
-        const file = e.target.files[0]
-        getNewAvatar(file)
+        const files = e.target.files
+        if (!validateExtentionFile(files, extentionsFile)) {
+            toast.error('Не вірний формат файлу', {autoClose: 2000, toastId})
+            return
+        }
+        if(!validateSizeFile(files[0].size)) {
+            toast.error('Розмір файлу повинен бути не більше 5Mb', {autoClose: 2000, toastId})
+            return
+        }
+
+        getNewAvatar(files[0])
     };
 
     return (
-        <div className={classNames(cls.UploadFile, {}, [])}>
-            {label && <span>{`${label}`}</span>}
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={handleButtonClick}
-                className={cls.btn}
-            >
-                Завантажити файл
-            </Button>
-            <input
-                disabled={disabled}
-                type="file"
-                ref={fileInputRef}
-                className={cls.fileInput}
-                onChange={handleFileChange}
-            />
-        </div>
+        <>
+            <ToastContainer autoClose={1500}/>
+            <div className={classNames(cls.UploadFile, {}, [])}>
+                {label && <span>{`${label}`}</span>}
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={handleButtonClick}
+                    className={cls.btn}
+                >
+                    Завантажити файл
+                </Button>
+                <input
+                    disabled={disabled}
+                    type="file"
+                    ref={fileInputRef}
+                    className={cls.fileInput}
+                    onChange={handleFileChange}
+                />
+            </div>
+        </>
     );
 });
 

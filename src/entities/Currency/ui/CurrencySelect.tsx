@@ -4,7 +4,7 @@ import {ListBox} from "@/shared/ui/ListBox/ListBox";
 interface CurrencySelectProps {
     className?: string;
     value?: Currency;
-    onChange?: (value: Currency) => void;
+    onChangeCurrency: (value: Currency) => void;
     readonly?: boolean;
 }
 
@@ -15,15 +15,16 @@ const options = [
 ];
 
 export const CurrencySelect = memo(
-    ({ className, readonly }: CurrencySelectProps) => {
+    ({ className, readonly, onChangeCurrency }: CurrencySelectProps) => {
         const [valueChange, setValueChange] = useState('Виберіть валюту')
 
         const onChangeHandler = useCallback(
         //@ts-ignore
             (selectedValue) => {
                 setValueChange(selectedValue.value)
+                onChangeCurrency(selectedValue.value);
             },
-            [setValueChange]
+            [setValueChange, onChangeCurrency]
         )
 
         return (

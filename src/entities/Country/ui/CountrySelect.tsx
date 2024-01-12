@@ -4,7 +4,7 @@ import {Country} from "../model/country";
 interface CountrySelectProps {
     className?: string;
     value?: Country;
-    onChange?: (value: Country) => void;
+    onChangeCountry: (value: Country) => void;
     readonly?: boolean;
 }
 
@@ -15,13 +15,14 @@ const options = [
 ];
 
 export const CountrySelect = memo(
-    ({ className, readonly }: CountrySelectProps) => {
+    ({ className, readonly, onChangeCountry }: CountrySelectProps) => {
         const [valueChange, setValueChange] = useState('Виберіть країну')
 
         const onChangeHandler = useCallback(
             //@ts-ignore
             (selectedValue) => {
                 setValueChange(selectedValue.value)
+                onChangeCountry(selectedValue.value)
             },
             [setValueChange]
         )
