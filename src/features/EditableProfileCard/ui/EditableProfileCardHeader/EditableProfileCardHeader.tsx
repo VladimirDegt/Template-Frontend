@@ -6,13 +6,15 @@ import {useAppDispatch} from "@/shared/lib/hook/useAppDispatch/useAppDispatch";
 
 interface EditableProfileCardHeaderProps {
     className?: string;
+    onChangeDisabledInput: () => void
 }
-export const EditableProfileCardHeader = memo(({className}: EditableProfileCardHeaderProps) => {
+export const EditableProfileCardHeader = memo(({className, onChangeDisabledInput}: EditableProfileCardHeaderProps) => {
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
+        onChangeDisabledInput()
         // dispatch(profileActions.setReadonly(false));
-    }, [dispatch]);
+    }, [onChangeDisabledInput, dispatch]);
 
     const onCancelEdit = useCallback(() => {
         // dispatch(profileActions.cancelEdit());

@@ -22,7 +22,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     return (
         <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <AppLogo
-                size = {collapsed ? 30 : 50}
+                size = {collapsed ? 60 : 100}
             />
             <div className={cls.items}>
                 {SidebarItemsList.map((item) => (

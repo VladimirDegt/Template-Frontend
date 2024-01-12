@@ -1,0 +1,25 @@
+.UploadFile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fileInput {
+    display: none;
+}
+
+.btn {
+    min-width: 300px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 48px;
+    border: 2px solid var(--icon-redesigned);
+    font: var(--font-m-redesigned);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--inverted-primary-color);
+}

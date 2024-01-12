@@ -1,21 +1,35 @@
 import {classNames} from "@/shared/lib/classNames/classNames";
 import cls from './EditableProfileCard.module.scss'
-import {memo} from "react";
+import {memo, useEffect, useState} from "react";
 import {Avatar} from "@/shared/ui/Avatar";
 import ImgAvatar from '@/shared/assets/image/avatar.png'
 import {Input} from "@/shared/ui/Input/ui/Input";
-import {useAppDispatch} from "@/shared/lib/hook/useAppDispatch/useAppDispatch";
 import {Profile} from "@/entities/Profile";
 import {CurrencySelect} from "@/entities/Currency/ui/CurrencySelect";
 import {CountrySelect} from "@/entities/Country/ui/CountrySelect";
+import {UploadFile} from "@/shared/ui/UploadFile/UploadFile";
 
 interface EditableProfileCardProps {
     className?: string,
-    data?: Profile
+    data?: Profile,
+    disabled: boolean
 }
 
-export const EditableProfileCard = memo(({className, data}: EditableProfileCardProps) => {
-    console.log('data-->', data)
+export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
+    const {className, data, disabled} = props;
+    const [avatarNew, setAvatarNew] = useState('');
+
+    useEffect(() => {
+        if (avatarNew) {
+            setAvatarNew(avatarNew);
+        }
+    }, [avatarNew]);
+
+    const getNewAvatar = (avatar:File) => {
+        const objectURL = URL.createObjectURL(avatar);
+        setAvatarNew(objectURL);
+    }
+
     // const dispatch = useAppDispatch();
 
     // const onChangeFirstname = useCallback(
@@ -74,50 +88,56 @@ export const EditableProfileCard = memo(({className, data}: EditableProfileCardP
     //     [dispatch],
     // );
 
+
+
     return (
-        <div className={classNames(cls.EditableProfileCard, {}, [className])}>
+        <div className={classNames(cls.EditableProfileCard, {}, [])}>
             <Avatar
-                src={ImgAvatar}
+                src={ avatarNew || ImgAvatar}
                 size={100}
                 alt={'Аватар користувача'}
             />
             <div className={cls.containerInput}>
                 <div className={cls.blockInput}>
                     <Input
-                        className={cls.input}
                         value={data?.first}
                         label={'Ім`я'}
+                        disabled={disabled}
                         // onChange={onChangeFirstname}
                     />
                     <Input
                         value={data?.lastname}
                         label={'Прізвище'}
+                        disabled={disabled}
                         // onChange={onChangeLastname}
                     />
                     <Input
                         value={data?.age}
                         label={'Вік'}
+                        disabled={disabled}
                         // onChange={onChangeAge}
                     />
                     <Input
                         value={data?.city}
                         label={'Місто'}
+                        disabled={disabled}
                         // onChange={onChangeCity}
                     />
                 </div>
                 <div className={cls.blockInput}>
                     <Input
                         value={data?.username}
-                        label={'Нікнейм'}
+                        label={'Нік'}
+                        disabled={disabled}
                         // onChange={onChangeUsername}
                     />
-                    <Input
-                        value={data?.avatar}
-                        label={'Аватар'}
-                        // onChange={onChangeAvatar}
+                    <UploadFile
+                        label='Аватар'
+                        disabled={disabled}
+                        getNewAvatar={getNewAvatar}
                     />
-                    <CurrencySelect/>
-                    <CountrySelect/>
+                    <CurrencySelect readonly={disabled}/>
+                    <CountrySelect readonly={disabled}/>
                 </div>
             </div>
 
