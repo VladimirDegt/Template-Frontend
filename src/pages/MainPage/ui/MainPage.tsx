@@ -1,7 +1,9 @@
+import { Sliader } from '@/shared/ui/Slider';
+
 const MainPage = () => {
   return (
       <main>
-          <p>Main</p>
+          <Sliader/>
       </main>
   );
 };
