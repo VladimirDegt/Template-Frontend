@@ -15,8 +15,10 @@
     min-width: 140px;
     border-radius: 8px;
     transition: var(--transition);
+    transition: border-color 0.3s;
 
     &:hover {
         background-color: var(--accent-redesigned);
+        border-color: var(--accent-redesigned);
     }
 }

@@ -14,11 +14,19 @@ import {Country} from "@/entities/Country";
 interface EditableProfileCardProps {
     className?: string,
     data?: Profile,
-    disabled: boolean
+    disabled: boolean,
+    getNewProfile: (profile: Profile) => void
+    newProfile: Profile | null
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-    const {className, data, disabled} = props;
+    const {
+        className,
+        data,
+        disabled,
+        getNewProfile,
+        newProfile
+    } = props;
     const [avatar, setAvatar] = useState(ImgAvatar);
     const [first, setFirst] = useState(data?.first || '');
     const [lastname, setLastname] = useState(data?.lastname || '');
@@ -34,54 +42,78 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         }
     }, [avatar]);
 
+    useEffect(() => {
+        getNewProfile(
+            {
+                avatar,
+                age,
+                username,
+                first,
+                lastname,
+                city,
+                country,
+                currency
+            }
+        )
+    }, [
+        avatar,
+        age,
+        username,
+        first,
+        lastname,
+        city,
+        country,
+        currency,
+        getNewProfile,
+    ]);
+
+    useEffect(() => {
+        if(!newProfile) {
+            setAvatar(ImgAvatar);
+            setFirst('');
+            setLastname('');
+            setAge('');
+            setCity('');
+            setUsername('');
+            setCurrency('');
+            setCountry('')
+        }
+    }, [newProfile]);
+
     const getNewAvatar = useCallback((avatar:File) => {
         const objectURL = URL.createObjectURL(avatar);
         setAvatar(objectURL);
     }, [setAvatar])
 
-    // const dispatch = useAppDispatch();
-
-    const onChangeFirstname =
-        (value: string) => {
+    const onChangeFirstname = (value: string) => {
             setFirst(value)
-            // dispatch(profileActions.updateProfile({ first: value || '' }));
-    }
+      }
 
-    const onChangeLastname =
-        (value: string) => {
+    const onChangeLastname =  (value: string) => {
             setLastname(value)
-            // dispatch(profileActions.updateProfile({ first: value || '' }));
-    }
+      }
 
-    const onChangeAge =
-        (value: string) => {
+    const onChangeAge = (value: string) => {
             setAge(value)
-            // dispatch(profileActions.updateProfile({ first: value || '' }));
     }
 
-    const onChangeCity =
-        (value: string) => {
+    const onChangeCity = (value: string) => {
             setCity(value)
-            // dispatch(profileActions.updateProfile({ first: value || '' }));
         }
-    const onChangeUsername =
-        (value: string) => {
+    const onChangeUsername = (value: string) => {
             setUsername(value)
-            // dispatch(profileActions.updateProfile({ first: value || '' }));
     }
 
     const onChangeCurrency = useCallback(
         (currency: Currency) => {
             setCurrency(currency)
-            // dispatch(profileActions.updateProfile({ currency }));
         },
         [setCurrency],
     );
 
     const onChangeCountry = useCallback(
-        (currency: Country) => {
-            setCountry(currency)
-            // dispatch(profileActions.updateProfile({ currency }));
+        (country: Country) => {
+                setCountry(country)
         },
         [setCountry],
     );

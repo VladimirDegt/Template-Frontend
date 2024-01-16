@@ -10,8 +10,8 @@ export interface Profile {
     first?: string;
     lastname?: string;
     age?: string;
-    currency?: Currency;
-    country?: Country;
+    currency?: Currency | string;
+    country?: Country | string;
     city?: string;
     username?: string;
     isLoading?: boolean;
