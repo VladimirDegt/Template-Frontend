@@ -1,33 +1,43 @@
-import {classNames} from "@/shared/lib/classNames/classNames";
 import cls from './Sliader.module.scss';
-import { useState } from 'react';
-import ImgReviewsOne from '@/shared/assets/image/reviews_1.jpg';
-import ImgReviewsTwo from '@/shared/assets/image/reviews_2.jpg';
-import ImgReviewsThree from '@/shared/assets/image/reviews_3.jpg';
+import {cards} from "@/shared/ui/Slider/db/cardsReview";
+import {useEffect, useState} from "react";
+import {Button} from "@/shared/ui/Slider/ui/Button";
 
-interface SliaderProps {
-    className?: string;
-}
+export const Sliader = () => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [disabledRightBtn, setDisabledRightBtn] = useState<boolean>(false);
+    const [disabledLeftBtn, setDisabledLeftBtn] = useState<boolean>(false);
 
-const cards = [
-    { id: 0, card: ImgReviewsOne},
-    { id: 1, card: ImgReviewsTwo},
-    { id: 2, card: ImgReviewsThree }
-];
-
-export const Sliader = ({ className }: SliaderProps) => {
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const handleNextSlide = () => {
+    useEffect(() => {
+        if(currentIndex === (cards.length - 3)){
+            setDisabledRightBtn(true)
+        }
+        if(currentIndex === 0){
+            setDisabledLeftBtn(true)
+        }
+    }, [currentIndex]);
+    const handleNextSlide = (): void => {
+        if(currentIndex === (cards.length - 3)) {
+            return
+        }
+        setDisabledLeftBtn(false)
         setCurrentIndex(prevState => (prevState + 1) % cards.length)
+    }
+    const handlePrevSlide = (): void => {
+        if(currentIndex === 0) {
+            return
+        }
+        setDisabledRightBtn(false)
+        setCurrentIndex(prevState => (prevState - 1) % cards.length)
     }
     return (
         <section>
             <div className={cls.conteinerTitle}>
                 <h2 className={cls.title}>Відгуки</h2>
             </div>
-            <div className={classNames(cls.Sliader, {}, [className])}>
+            <div className={cls.Sliader}>
                 <ul className={cls.conteiner}>
-                    {[...cards, ...cards].slice(currentIndex, currentIndex + 3).map(item => {
+                    {[...cards].slice(currentIndex, currentIndex + 3).map(item => {
                         return <li key={item.id} className={cls.slide}>
                             <div>
                                 <img
@@ -40,13 +50,18 @@ export const Sliader = ({ className }: SliaderProps) => {
                         </li>
                     })}
                 </ul>
-                <button
-                    type='button'
-                    className={cls.button}
+                <Button
+                    type={"button"}
+                    content={'Назад'}
+                    className={disabledLeftBtn ? cls.disabled : cls.button}
+                    onClick={handlePrevSlide}
+                />
+                <Button
+                    type={"button"}
+                    content={'Вперед'}
+                    className={disabledRightBtn ? cls.disabled : cls.button}
                     onClick={handleNextSlide}
-                >
-                    <span className={cls.btnText}>Більше відгуків</span>
-                </button>
+                />
             </div>
 
         </section>
