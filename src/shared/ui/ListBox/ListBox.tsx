@@ -68,7 +68,7 @@ export function ListBox(props: ListBoxProps) {
                             disabled={item.disabled}
                             as={Fragment}
                         >
-                            {({ active, selected }) => (
+                            {({ active, _ }) => (
                                 <li className={classNames(cls.item,{
                                     [cls.active]: active,
                                     [cls.disabled]: item.disabled,

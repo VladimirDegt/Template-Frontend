@@ -1,4 +1,4 @@
-import {memo, useCallback} from "react";
+import {memo} from "react";
 import {classNames} from '@/shared/lib/classNames/classNames';
 import cls from './EditableProfileCardHeader.module.scss';
 import {Button, ButtonTheme} from "@/shared/ui/Button/Button";
@@ -17,8 +17,6 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
         saveUpdateProfile,
         cleanProfile
     } = props;
-
-    const dispatch = useAppDispatch();
 
     const onEdit = () => {
         onChangeDisabledInput()

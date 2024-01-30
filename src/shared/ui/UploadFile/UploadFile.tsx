@@ -16,7 +16,6 @@ const toastId = "custom-id-yes";
 const extentionsFile = ['jpg','jpeg', 'png', 'webp'];
 export const UploadFile = memo((props: UploadFileProps) => {
     const {
-        className,
         label,
         disabled ,
         getNewAvatar

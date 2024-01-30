@@ -24,7 +24,7 @@ export const CountrySelect = memo(
                 setValueChange(selectedValue.value)
                 onChangeCountry(selectedValue.value)
             },
-            [setValueChange]
+            [onChangeCountry, setValueChange]
         )
 
         return (

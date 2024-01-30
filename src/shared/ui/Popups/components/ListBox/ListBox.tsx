@@ -9,14 +9,14 @@ import popupCls from '../../styles/popup.module.scss';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import {Icon} from "@/shared/ui/Icon/Icon";
 
-export interface ListBoxItem<T extends string> {
+export interface ListBoxItem {
     value: string;
     content: ReactNode;
     disabled?: boolean;
 }
 
 interface ListBoxProps<T extends string> {
-    items?: ListBoxItem<T>[];
+    items?: ListBoxItem[];
     className?: string;
     value?: T;
     defaultValue?: string;

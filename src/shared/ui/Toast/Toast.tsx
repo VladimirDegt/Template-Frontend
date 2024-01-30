@@ -13,7 +13,7 @@ interface ToastProps {
     theme: string,
 }
 
-export const Toast = (props: ToastProps) => {
+export const Toast = (_: ToastProps) => {
     return (
         <>
             <ToastContainer
