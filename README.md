@@ -2,7 +2,7 @@
 
 ```
 npm install - встановлюємо залежності
-npm run start або npm run star:webpack - запуск frontend проєкта
+npm run start або npm run star:webpack - запуск frontend проєкту
 ```
 
 ----
@@ -26,7 +26,7 @@ npm run start або npm run star:webpack - запуск frontend проєкта
 
 Проєкт написано у відповідності до методології Feature sliced design
 
-Росилання на документацію - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+Посилання на документацію - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
 ----
 
@@ -49,7 +49,6 @@ npm run start або npm run star:webpack - запуск frontend проєкта
 - `npm run lint:ts:fix` - Виправлення ts файлів линтером
 - `npm run lint:scss` - Перевірка scss файлів style линтером
 - `npm run lint:scss:fix` - Виправлення scss файлів style линтером
-
 
 ----
 
@@ -79,11 +78,9 @@ npm run start або npm run star:webpack - запуск frontend проєкта
 
 ### Робота с даними
 
-
 Взаємодія з даними відбувається за допомогою [Redux toolkit](https://redux-toolkit.js.org/)
 
 Запити на сервер відправляються за допомогою [RTK query](https://redux-toolkit.js.org/rtk-query/overview)
-
 
 ----
 
@@ -101,3 +98,12 @@ npm run start або npm run star:webpack - запуск frontend проєкта
 - [EditableProfileCard](/src/features/EditableProfileCard)
 - [TextEditor](/src/features/TextEditor)
 
+----
+
+### Оптимізація
+
+Для прикладу виконане леніве завантаження модалки
+
+Використано леніве завантаження бібліотеки, наприкладі 'react-toastify'
+
+----
