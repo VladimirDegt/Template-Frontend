@@ -1,8 +1,12 @@
-import {memo, useCallback, useState} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import {useSelector} from "react-redux";
 import {EditableProfileCard, EditableProfileCardHeader} from "@/features/EditableProfileCard";
 import { getProfileState } from "@/entities/Profile/model/selectors/getProfileState";
 import {Profile} from "@/entities/Profile";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const toastId = "custom-id-yes";
 
 export const ProfileCard = memo(() => {
     const [disabled, setDisabled] = useState<boolean>(true);
@@ -18,8 +22,8 @@ export const ProfileCard = memo(() => {
     }, [setNewProfile])
 
     const saveUpdateProfile = useCallback(() => {
-        console.log('newProfile-->', newProfile)
-    }, [newProfile])
+        toast.info('Вибачайте, але бекендер забув завести сервер )', {autoClose: 3000, toastId})
+    }, [])
 
     const cleanProfile = useCallback(() => {
         setNewProfile(null)
@@ -27,6 +31,7 @@ export const ProfileCard = memo(() => {
 
     return (
         <>
+            <ToastContainer autoClose={1500}/>
             <EditableProfileCardHeader
                 onChangeDisabledInput={onChangeDisabledInput}
                 saveUpdateProfile={saveUpdateProfile}
